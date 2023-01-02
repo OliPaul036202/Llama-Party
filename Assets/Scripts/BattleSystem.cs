@@ -53,6 +53,11 @@ public class BattleSystem : MonoBehaviour
         //AI turn
         yield return new WaitForSeconds(1);
         Debug.Log("Enemy Turn");
+
+        //Wait 2 seconds then start players turn again **FOR TESTING PURPOSES**
+        yield return new WaitForSeconds(2);
+        battleState = BattleState.PLAYERTURN;
+        yield return StartCoroutine(PlayersTurn());
     }
 
     

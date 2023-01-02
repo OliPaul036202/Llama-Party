@@ -711,7 +711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 317, y: -453}
+  m_AnchoredPosition: {x: 317, y: -624}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &289367570
@@ -1673,6 +1673,8 @@ GameObject:
   m_Component:
   - component: {fileID: 579423152}
   - component: {fileID: 579423153}
+  - component: {fileID: 579423154}
+  - component: {fileID: 579423155}
   m_Layer: 0
   m_Name: Card (4)
   m_TagString: Untagged
@@ -1720,6 +1722,38 @@ MonoBehaviour:
   artworkImage: {fileID: 1583601747}
   costText: {fileID: 432717662}
   valueText: {fileID: 1590240464}
+--- !u!114 &579423154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579423151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &579423155
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579423151}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d856c2b44cedd2446bbb18be1890b5f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &581970002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,7 +1867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42, y: -453}
+  m_AnchoredPosition: {x: 42, y: -624}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &659913288
@@ -2532,6 +2566,8 @@ GameObject:
   m_Component:
   - component: {fileID: 977126055}
   - component: {fileID: 977126056}
+  - component: {fileID: 977126057}
+  - component: {fileID: 977126058}
   m_Layer: 0
   m_Name: Llarper - Defender
   m_TagString: Untagged
@@ -2579,6 +2615,38 @@ MonoBehaviour:
   artworkImage: {fileID: 1234485719}
   costText: {fileID: 267135081}
   valueText: {fileID: 1354451394}
+--- !u!114 &977126057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977126054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &977126058
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977126054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d856c2b44cedd2446bbb18be1890b5f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &981750813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,6 +2737,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1094224618}
   - component: {fileID: 1094224619}
+  - component: {fileID: 1094224620}
+  - component: {fileID: 1094224621}
   m_Layer: 0
   m_Name: NotLLama - Defender
   m_TagString: Untagged
@@ -2695,7 +2765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -292, y: -132}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1094224619
@@ -2716,6 +2786,38 @@ MonoBehaviour:
   artworkImage: {fileID: 297595843}
   costText: {fileID: 1727813271}
   valueText: {fileID: 739256396}
+--- !u!114 &1094224620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094224617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1094224621
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094224617}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d856c2b44cedd2446bbb18be1890b5f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1115842146
 GameObject:
   m_ObjectHideFlags: 0
@@ -3296,6 +3398,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1430793140}
   - component: {fileID: 1430793141}
+  - component: {fileID: 1430793142}
+  - component: {fileID: 1430793143}
   m_Layer: 0
   m_Name: MAD Llama - Attacker
   m_TagString: Untagged
@@ -3343,6 +3447,38 @@ MonoBehaviour:
   artworkImage: {fileID: 355811290}
   costText: {fileID: 1996838888}
   valueText: {fileID: 846081761}
+--- !u!114 &1430793142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430793139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1430793143
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430793139}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d856c2b44cedd2446bbb18be1890b5f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1477939637
 GameObject:
   m_ObjectHideFlags: 0
@@ -3487,6 +3623,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1497603562}
   - component: {fileID: 1497603563}
+  - component: {fileID: 1497603564}
+  - component: {fileID: 1497603565}
   m_Layer: 0
   m_Name: Card (3)
   m_TagString: Untagged
@@ -3534,6 +3672,38 @@ MonoBehaviour:
   artworkImage: {fileID: 151256981}
   costText: {fileID: 2061875778}
   valueText: {fileID: 356332125}
+--- !u!114 &1497603564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497603561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1497603565
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497603561}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d856c2b44cedd2446bbb18be1890b5f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1583601745
 GameObject:
   m_ObjectHideFlags: 0
@@ -3964,7 +4134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224, y: -453}
+  m_AnchoredPosition: {x: -224, y: -624}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1831590829

@@ -13,7 +13,7 @@ public class DrawSystem : MonoBehaviour
     {
         if(deck.Count >= 1)
         {
-            Debug.Log("DRAWING");
+            //Debug.Log("DRAWING");
             GameObject randCard = deck[Random.Range(0, deck.Count)];
 
             for(int i = 0; i < availableCardSlots.Length; i++)
@@ -28,10 +28,5 @@ public class DrawSystem : MonoBehaviour
                 }
             }
         }
-    }
-
-    void Update()
-    {
-        
     }
 }
