@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
-
     public Card card;
 
     public Text nameText;
@@ -25,5 +24,6 @@ public class CardDisplay : MonoBehaviour
 
         costText.text = card.orbCost.ToString();
         valueText.text = card.llamaPoints.ToString();
+
     }
 }

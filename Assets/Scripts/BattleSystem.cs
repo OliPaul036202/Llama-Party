@@ -21,9 +21,6 @@ public class BattleSystem : MonoBehaviour
     IEnumerator BeginBattle()
     {
         Debug.Log("Starting Battle...");
-        drawSystem.DrawCards();
-        drawSystem.DrawCards();
-        drawSystem.DrawCards();
         yield return new WaitForSeconds(2);
         //Wait 2 seconds then it is the players turn.
         battleState = BattleState.PLAYERTURN;
@@ -34,6 +31,10 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayersTurn()
     {
         //Display message here stating its the players turn.
+
+        drawSystem.DrawCards();
+        drawSystem.DrawCards();
+        drawSystem.DrawCards();
 
         yield return new WaitForSeconds(1);
         Debug.Log("Players Turn");
