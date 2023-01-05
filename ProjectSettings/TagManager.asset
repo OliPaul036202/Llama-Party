@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FriendlySide
   - BoardSystem
+  - DrawSystem
   layers:
   - Default
   - TransparentFX

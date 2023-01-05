@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 130643768}
   m_Layer: 0
   m_Name: Draw System Manager
-  m_TagString: Untagged
+  m_TagString: DrawSystem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,11 +233,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - {fileID: 1094224617}
-  - {fileID: 977126054}
-  - {fileID: 1430793139}
-  - {fileID: 1497603561}
-  - {fileID: 579423151}
+  - {fileID: 1094224620}
+  - {fileID: 977126057}
+  - {fileID: 1430793142}
+  - {fileID: 1497603564}
+  - {fileID: 579423154}
   cardSlots:
   - {fileID: 644540563}
   - {fileID: 1792428593}
@@ -1736,8 +1736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardCard: {fileID: 0}
+  boardCard: {fileID: 8422972039132572531, guid: 6e345411f0247f64e9a759db44d3e992, type: 3}
   boardSystem: {fileID: 0}
+  handIndex: 0
+  drawSystem: {fileID: 0}
 --- !u!95 &579423155
 Animator:
   serializedVersion: 4
@@ -2711,6 +2713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardCard: {fileID: 8074478937947764902, guid: 614059c5eedc428429fb81494d894162, type: 3}
   boardSystem: {fileID: 0}
+  handIndex: 0
+  drawSystem: {fileID: 0}
 --- !u!95 &977126058
 Animator:
   serializedVersion: 4
@@ -2884,6 +2888,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardCard: {fileID: 8422972039132572531, guid: 6e345411f0247f64e9a759db44d3e992, type: 3}
   boardSystem: {fileID: 0}
+  handIndex: 0
+  drawSystem: {fileID: 0}
 --- !u!95 &1094224621
 Animator:
   serializedVersion: 4
@@ -2943,6 +2949,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1117558114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117558115}
+  m_Layer: 0
+  m_Name: Slot 5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1117558115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117558114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.12, y: -1.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1637368586}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1170723000
 GameObject:
   m_ObjectHideFlags: 0
@@ -3596,7 +3633,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389704110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: -0.79, z: 0}
+  m_LocalPosition: {x: 0.15, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3674,8 +3711,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardCard: {fileID: 8074478937947764902, guid: 614059c5eedc428429fb81494d894162, type: 3}
+  boardCard: {fileID: 4375811189360372950, guid: 8beab93c29601944d960ffc7f10e7af5, type: 3}
   boardSystem: {fileID: 0}
+  handIndex: 0
+  drawSystem: {fileID: 0}
 --- !u!95 &1430793143
 Animator:
   serializedVersion: 4
@@ -3720,7 +3759,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468030083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.85, y: -0.79, z: 0}
+  m_LocalPosition: {x: -1.87, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3912,7 +3951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4010,6 +4049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardCard: {fileID: 8074478937947764902, guid: 614059c5eedc428429fb81494d894162, type: 3}
   boardSystem: {fileID: 0}
+  handIndex: 0
+  drawSystem: {fileID: 0}
 --- !u!95 &1497603565
 Animator:
   serializedVersion: 4
@@ -4030,6 +4071,37 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1505409482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1505409483}
+  m_Layer: 0
+  m_Name: Slot 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1505409483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505409482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.83, y: -1.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1637368586}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583601745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4299,6 +4371,8 @@ Transform:
   - {fileID: 1389704111}
   - {fileID: 1468030084}
   - {fileID: 1739245170}
+  - {fileID: 1505409483}
+  - {fileID: 1117558115}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4318,7 +4392,9 @@ MonoBehaviour:
   - {fileID: 1389704111}
   - {fileID: 1468030084}
   - {fileID: 1739245170}
-  availableBoardSlots: 010101
+  - {fileID: 1505409483}
+  - {fileID: 1117558115}
+  availableBoardSlots: 0101010101
 --- !u!1 &1642906098
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,7 +4579,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739245169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.17, y: -0.79, z: 0}
+  m_LocalPosition: {x: 2.16, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
