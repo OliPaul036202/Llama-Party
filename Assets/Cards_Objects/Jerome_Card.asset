@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b47acb27aa47c643a58891072739bfb, type: 3}
+  m_Name: Jerome_Card
+  m_EditorClassIdentifier: 
+  name: Jerome
+  description: Jerome
+  artwork: {fileID: 21300000, guid: aef3994daf532654ca197c1f894254e4, type: 3}
+  orbCost: 2
+  llamaPoints: 3
