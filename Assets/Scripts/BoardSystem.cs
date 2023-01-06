@@ -14,7 +14,7 @@ public class BoardSystem : MonoBehaviour
             if (availableBoardSlots[i] == true)
             {
                 Debug.Log("Spawned Board Card");
-                Instantiate(card, boardSlots[i].position, Quaternion.identity);
+                Instantiate(card, boardSlots[i].position, card.transform.rotation);
                 availableBoardSlots[i] = false;
                 return;
             }
