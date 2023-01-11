@@ -12,4 +12,8 @@ public class Card : ScriptableObject
 
     public int orbCost;
     public int llamaPoints;
+
+    public bool Booster;
+    public bool Defender;
+    public bool Attacker;
 }

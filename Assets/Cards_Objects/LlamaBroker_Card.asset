@@ -17,4 +17,6 @@ MonoBehaviour:
   artwork: {fileID: 21300000, guid: c1ec7436cba1dcb4d84ce932f20a9a5c, type: 3}
   orbCost: 2
   llamaPoints: 1
-  boardObject: {fileID: 8074478937947764902, guid: 614059c5eedc428429fb81494d894162, type: 3}
+  Booster: 0
+  Defender: 1
+  Attacker: 0
