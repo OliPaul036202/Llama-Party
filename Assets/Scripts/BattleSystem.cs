@@ -10,9 +10,12 @@ public class BattleSystem : MonoBehaviour
     private bool canPlayCards;
 
     public DrawSystem drawSystem;
+
+    private OrbSystem orbSystem;
     // Start is called before the first frame update
     void Start()
     {
+        orbSystem = GetComponent<OrbSystem>();
         canPlayCards = false;
         battleState = BattleState.START;
         StartCoroutine(BeginBattle());
@@ -31,7 +34,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayersTurn()
     {
         //Display message here stating its the players turn.
-
+        orbSystem.resetOrbs();
         drawSystem.DrawCards();
         drawSystem.DrawCards();
         drawSystem.DrawCards();

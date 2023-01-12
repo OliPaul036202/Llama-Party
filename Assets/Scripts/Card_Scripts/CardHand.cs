@@ -18,6 +18,9 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public GameObject boardCard;
     public BoardSystem boardSystem;
 
+    public OrbSystem OrbSystem;
+    private int orbCost;
+
     public int handIndex;
     public DrawSystem drawSystem;
 
@@ -30,6 +33,10 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
 
         drawSystem = GameObject.FindGameObjectWithTag("DrawSystem").GetComponent<DrawSystem>();
+
+        OrbSystem = GameObject.FindGameObjectWithTag("BattleSystem").GetComponent<OrbSystem>();
+
+        orbCost = GetComponent<CardDisplay>().card.orbCost;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -54,9 +61,20 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (isOverFriendlySide)
         {
-            boardSystem.playCard(boardCard);
-            drawSystem.availableCardSlots[handIndex] = true;
-            gameObject.SetActive(false);
+            if(orbCost <= OrbSystem.playerCurrentOrbs)
+            {
+                //Take cost from players orbs
+                OrbSystem.applyOrbCost(orbCost);
+                //Play card
+                boardSystem.playCard(boardCard);
+                drawSystem.availableCardSlots[handIndex] = true;
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                transform.position = cachedPos;
+                isPointerDown = false;
+            }
         }
         else if (!isOverFriendlySide)
         {

@@ -8,6 +8,7 @@ TagManager:
   - BoardSystem
   - DrawSystem
   - ScoreSystem
+  - BattleSystem
   layers:
   - Default
   - TransparentFX
