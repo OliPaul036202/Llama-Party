@@ -8,6 +8,7 @@ public class CardDisplay : MonoBehaviour
     public Card card;
 
     public Text nameText;
+    public Text typeText;
     public Text descriptionText;
 
     public Image artworkImage;
@@ -25,5 +26,15 @@ public class CardDisplay : MonoBehaviour
         costText.text = card.orbCost.ToString();
         valueText.text = card.llamaPoints.ToString();
 
+        if (card.Booster)
+        {
+            typeText.text = "BOOSTER";
+        }else if (card.Defender)
+        {
+            typeText.text = "DEFENDER";
+        }else if (card.Attacker)
+        {
+            typeText.text = "ATTACKER";
+        }
     }
 }

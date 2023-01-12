@@ -9,6 +9,7 @@ public class ScoreSystem : MonoBehaviour
     public int player2Score;
 
     public TMP_Text playerScoreText;
+    public TMP_Text player2ScoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +21,16 @@ public class ScoreSystem : MonoBehaviour
     void Update()
     {
         playerScoreText.text = playerScore.ToString();
+        player2ScoreText.text = player2Score.ToString();
     }
 
     public void addPointsToPlayer(int LlamaPoints)
     {
         playerScore += LlamaPoints;
+    }
+
+    public void takePointsFromOpponent(int LlamaPoints)
+    {
+        player2Score -= LlamaPoints;
     }
 }

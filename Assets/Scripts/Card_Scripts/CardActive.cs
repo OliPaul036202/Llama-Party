@@ -7,11 +7,24 @@ public class CardActive : MonoBehaviour
     public int llamaPoints;
     public int orbCost;
 
+    public bool Defender;
+    public bool Attacker;
+
     private ScoreSystem scoreSystem;
+
     void Start()
     {
+
         scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
 
-        scoreSystem.addPointsToPlayer(llamaPoints);
+        if (Defender)
+        {
+            scoreSystem.addPointsToPlayer(llamaPoints);
+        }
+
+        if (Attacker)
+        {
+            scoreSystem.takePointsFromOpponent(llamaPoints);
+        }
     }
 }
