@@ -9,6 +9,9 @@ TagManager:
   - DrawSystem
   - ScoreSystem
   - BattleSystem
+  - AbilityManager
+  - ActiveDefender
+  - PreviewCard
   layers:
   - Default
   - TransparentFX

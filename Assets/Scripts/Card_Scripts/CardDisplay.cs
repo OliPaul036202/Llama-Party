@@ -37,4 +37,28 @@ public class CardDisplay : MonoBehaviour
             typeText.text = "ATTACKER";
         }
     }
+
+    public void RefreshDisplay()
+    {
+        nameText.text = card.name;
+        descriptionText.text = card.description;
+
+        artworkImage.sprite = card.artwork;
+
+        costText.text = card.orbCost.ToString();
+        valueText.text = card.llamaPoints.ToString();
+
+        if (card.Booster)
+        {
+            typeText.text = "BOOSTER";
+        }
+        else if (card.Defender)
+        {
+            typeText.text = "DEFENDER";
+        }
+        else if (card.Attacker)
+        {
+            typeText.text = "ATTACKER";
+        }
+    }
 }

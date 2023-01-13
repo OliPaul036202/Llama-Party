@@ -61,7 +61,7 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (isOverFriendlySide)
         {
-            if(orbCost <= OrbSystem.playerCurrentOrbs)
+            if(orbCost <= OrbSystem.playerCurrentOrbs && boardSystem.isPlayerSideAvailable() == true)
             {
                 //Take cost from players orbs
                 OrbSystem.applyOrbCost(orbCost);
