@@ -12,6 +12,7 @@ TagManager:
   - AbilityManager
   - ActiveDefender
   - PreviewCard
+  - Player2Side
   layers:
   - Default
   - TransparentFX

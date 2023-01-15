@@ -295,6 +295,66 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &46516927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 46516930}
+  - component: {fileID: 46516929}
+  - component: {fileID: 46516928}
+  m_Layer: 0
+  m_Name: VisualScripting SceneVariables
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &46516928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46516927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765181c9ef4b24d32a4f7cbd2ef370dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &46516929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46516927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Scene","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!4 &46516930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46516927}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &60136036
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,6 +1584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 251708504}
   - component: {fileID: 251708505}
+  - component: {fileID: 251708507}
   - component: {fileID: 251708506}
   m_Layer: 0
   m_Name: PreviewCard
@@ -1593,6 +1654,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &251708507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251708503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9520e90455124444fb266c48ecb906d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardBoarder: {fileID: 300409980}
+  defenderBoarder: {fileID: 21300000, guid: 36d08181b83efc245a46abeec74b32a5, type: 3}
+  attackerBoarder: {fileID: 21300000, guid: fc27804ef80ddc74aa5df31328cbac6f, type: 3}
 --- !u!1 &258429637
 GameObject:
   m_ObjectHideFlags: 0
@@ -5937,8 +6013,8 @@ GameObject:
   - component: {fileID: 896013229}
   - component: {fileID: 896013228}
   m_Layer: 0
-  m_Name: EnemySide
-  m_TagString: Untagged
+  m_Name: Player2Side
+  m_TagString: Player2Side
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10660,7 +10736,6 @@ MonoBehaviour:
   - {fileID: 1245672436}
   - {fileID: 2039502211}
   availableBoardSlots: 010101010101010101
-  slotCounter: 0
 --- !u!1 &1642906098
 GameObject:
   m_ObjectHideFlags: 0

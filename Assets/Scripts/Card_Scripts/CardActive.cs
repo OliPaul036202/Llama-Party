@@ -46,8 +46,14 @@ public class CardActive : MonoBehaviour
     {
         previewCard.GetComponent<Animator>().SetBool("previewActive", true);
         previewCard.GetComponent<CardDisplay>().card = activeCard;
+        if (Defender)
+        {
+            previewCard.GetComponent<PreviewCard>().setDefenderBoarder();
+        }else if (Attacker)
+        {
+            previewCard.GetComponent<PreviewCard>().setAttackerBoarder();
+        }
         previewCard.GetComponent<CardDisplay>().RefreshDisplay();
-
     }
 
     private void OnMouseExit()

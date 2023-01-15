@@ -7,7 +7,6 @@ public class BoardSystem : MonoBehaviour
     public Transform[] boardSlots;
     public bool[] availableBoardSlots;
 
-    public int slotCounter;
     public void playCard(GameObject card)
     {
         for (int i = 0; i < availableBoardSlots.Length; i++)
