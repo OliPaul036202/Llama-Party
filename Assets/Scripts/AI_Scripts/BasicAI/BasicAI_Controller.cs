@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class BasicAI_Controller : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<CardHandPlayer2> deck;
 
-    // Update is called once per frame
-    void Update()
+    public void playCard()
     {
-        
+        int randCard = UnityEngine.Random.Range(0, deck.Count);
+
+        deck[randCard].transform.position = transform.position;
     }
 }

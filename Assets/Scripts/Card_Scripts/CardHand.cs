@@ -9,7 +9,7 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private bool isPointerDown = false;
     private bool isHovering = false;
 
-    private bool isOverFriendlySide = false;
+    private bool OverPlayer1Side = false;
 
     private Vector3 cachedPos;
 
@@ -19,10 +19,12 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public BoardSystem boardSystem;
 
     public OrbSystem OrbSystem;
-    private int orbCost;
+    public int orbCost;
 
     public int handIndex;
     public DrawSystem drawSystem;
+
+
 
     private void Start()
     {
@@ -59,7 +61,7 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerUp(PointerEventData data)
     {
-        if (isOverFriendlySide)
+        if (OverPlayer1Side)
         {
             if(orbCost <= OrbSystem.playerCurrentOrbs && boardSystem.isPlayerSideAvailable() == true)
             {
@@ -76,7 +78,7 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 isPointerDown = false;
             }
         }
-        else if (!isOverFriendlySide)
+        else if (!OverPlayer1Side)
         {
             transform.position = cachedPos;
             isPointerDown = false;
@@ -94,11 +96,11 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             //Check to see if card is over friendly side
             if (rectOverlaps(uiRect1, this.GetComponent<RectTransform>()))
             {
-                isOverFriendlySide = true;
+                OverPlayer1Side = true;
             }
             else
             {
-                isOverFriendlySide = false;
+                OverPlayer1Side = false;
             }
         }
         else

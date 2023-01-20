@@ -12,6 +12,8 @@ public class BattleSystem : MonoBehaviour
     public DrawSystem drawSystem;
 
     private OrbSystem orbSystem;
+
+    public BasicAI_Controller basicAI; // **FOR TESTING** //
     // Start is called before the first frame update
     void Start()
     {
@@ -55,13 +57,18 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         //AI turn
+        orbSystem.resetOrbs();
         yield return new WaitForSeconds(1);
         Debug.Log("Enemy Turn");
+        basicAI.playCard();
+        yield return new WaitForSeconds(1.5f);
+        endEnemyTurn();
+    }
 
-        //Wait 2 seconds then start players turn again **FOR TESTING PURPOSES**
-        yield return new WaitForSeconds(2);
+    public void endEnemyTurn()
+    {
         battleState = BattleState.PLAYERTURN;
-        yield return StartCoroutine(PlayersTurn());
+        StartCoroutine(PlayersTurn());
     }
 
     
