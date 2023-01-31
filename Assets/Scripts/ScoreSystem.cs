@@ -29,8 +29,18 @@ public class ScoreSystem : MonoBehaviour
         playerScore += LlamaPoints;
     }
 
-    public void takePointsFromOpponent(int LlamaPoints)
+    public void takePointsFromPlayer(int LlamaPoints)
+    {
+        playerScore -= LlamaPoints;
+    }
+
+    public void takePointsFromPlayerTwo(int LlamaPoints)
     {
         player2Score -= LlamaPoints;
+    }
+
+    public void addPointsToPlayerTwo(int LlamaPoints)
+    {
+        player2Score += LlamaPoints;
     }
 }

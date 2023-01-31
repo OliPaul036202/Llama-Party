@@ -24,8 +24,6 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public int handIndex;
     public DrawSystem drawSystem;
 
-
-
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -68,6 +66,7 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 //Take cost from players orbs
                 OrbSystem.applyOrbCost(orbCost);
                 //Play card
+                boardCard.GetComponent<CardActive>().player1Card = true;
                 boardSystem.playCard(boardCard);
                 drawSystem.availableCardSlots[handIndex] = true;
                 gameObject.SetActive(false);

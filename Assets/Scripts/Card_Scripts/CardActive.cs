@@ -11,6 +11,9 @@ public class CardActive : MonoBehaviour
     public bool Defender;
     public bool Attacker;
 
+    public bool player1Card;
+    public bool player2Card;
+
     private ScoreSystem scoreSystem;
 
     public TMP_Text pointsText;
@@ -26,14 +29,28 @@ public class CardActive : MonoBehaviour
 
         previewCard = GameObject.FindGameObjectWithTag("PreviewCard");
 
-        if (Defender)
+        if (player1Card)
         {
-            scoreSystem.addPointsToPlayer(llamaPoints);
-        }
+            if (Defender)
+            {
+                scoreSystem.addPointsToPlayer(llamaPoints);
+            }
 
-        if (Attacker)
+            if (Attacker)
+            {
+                scoreSystem.takePointsFromPlayerTwo(llamaPoints);
+            }
+        } else if (player2Card)
         {
-            scoreSystem.takePointsFromOpponent(llamaPoints);
+            if (Defender)
+            {
+                scoreSystem.addPointsToPlayerTwo(llamaPoints);
+            }
+
+            if (Attacker)
+            {
+                scoreSystem.takePointsFromPlayer(llamaPoints);
+            }
         }
     }
 
