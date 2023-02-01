@@ -22,12 +22,21 @@ public class CardActive : MonoBehaviour
 
     public GameObject previewCard;
     public Card activeCard;
+
+    private AudioSource audioSource;
+    public AudioClip audioClip;
     void Start()
     {
         scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
         abilityManager = GameObject.FindGameObjectWithTag("AbilityManager").GetComponent<AbilityManager>();
 
         previewCard = GameObject.FindGameObjectWithTag("PreviewCard");
+
+        audioSource = this.GetComponent<AudioSource>();
+        if (audioClip)
+        {
+            audioSource.PlayOneShot(audioClip);
+        }
 
         if (player1Card)
         {

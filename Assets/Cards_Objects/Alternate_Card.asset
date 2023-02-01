@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Alternate_Card
   m_EditorClassIdentifier: 
   name: Alternate Llama
-  description: 'YELL: Turn one friendly Defender into a copy of this'
+  description: 'YELL: Turn one random friendly Defender into a copy of this'
   artwork: {fileID: 21300000, guid: c2d12123df5077f4e86e6378adaede69, type: 3}
   orbCost: 2
   llamaPoints: 2
