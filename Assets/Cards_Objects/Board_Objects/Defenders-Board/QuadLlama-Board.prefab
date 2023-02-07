@@ -393,7 +393,7 @@ MonoBehaviour:
   orbCost: 1
   Defender: 1
   Attacker: 0
-  player1Card: 1
+  player1Card: 0
   player2Card: 0
   pointsText: {fileID: 1752772061909460267}
   abilityManager: {fileID: 0}
@@ -425,7 +425,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.7
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

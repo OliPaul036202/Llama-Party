@@ -15,6 +15,9 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private RectTransform uiRect1;
 
+    private RectTransform player2SideTransform;
+    private bool overPlayer2Side = false;
+
     public GameObject boardCard;
     public BoardSystem boardSystem;
 
@@ -24,11 +27,16 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public int handIndex;
     public DrawSystem drawSystem;
 
+    public bool player1Card;
+    public bool player2Card;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
 
         uiRect1 = GameObject.Find("FriendlySide").GetComponent<RectTransform>();
+
+        player2SideTransform = GameObject.Find("Player2Side").GetComponent<RectTransform>();
 
         boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
 
@@ -59,28 +67,50 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerUp(PointerEventData data)
     {
+        // Check to see if player has tried to play a card over player 1s side
         if (OverPlayer1Side)
         {
-            if(orbCost <= OrbSystem.playerCurrentOrbs && boardSystem.isPlayerSideAvailable() == true)
+            // If the card is a player 1 card then play card
+            if (player1Card)
             {
-                //Take cost from players orbs
-                OrbSystem.applyOrbCost(orbCost);
-                //Play card
-                boardCard.GetComponent<CardActive>().player1Card = true;
-                boardSystem.playCard(boardCard);
-                drawSystem.availableCardSlots[handIndex] = true;
-                gameObject.SetActive(false);
+                if (orbCost <= OrbSystem.playerCurrentOrbs && boardSystem.isPlayerSideAvailable() == true)
+                {
+                    //Take cost from players orbs
+                    OrbSystem.applyOrbCost(orbCost);
+                    //Play card
+                    boardCard.GetComponent<CardActive>().player2Card = false;
+                    boardCard.GetComponent<CardActive>().player1Card = true;
+                    boardSystem.playCard(boardCard);
+                    drawSystem.availableCardSlots[handIndex] = true;
+                    gameObject.SetActive(false);
+                }
             }
-            else
+        }else if (overPlayer2Side)
+        {
+            if (player2Card)
             {
+                //Check to see if the player 2 AI can afford to play this card
+                if(orbCost <= OrbSystem.player2CurrentOrbs && boardSystem.isPlayer2SideAvailable() == true)
+                {
+                    //Take cost from players orbs
+                    OrbSystem.applyOrbCost(orbCost);
+                    //Play card
+                    boardCard.GetComponent<CardActive>().player2Card = true;
+                    boardCard.GetComponent<CardActive>().player1Card = false;
+                    boardSystem.playCard(boardCard);
+                    drawSystem.availableCardSlots[handIndex] = true;
+                    gameObject.SetActive(false);
+                }
+            }
+        }
+        else if(!OverPlayer1Side && OverPlayer1Side)
+        {
+            if (player1Card)
+            {
+                // If the player cannot afford to play this card; return it to their hand
                 transform.position = cachedPos;
                 isPointerDown = false;
             }
-        }
-        else if (!OverPlayer1Side)
-        {
-            transform.position = cachedPos;
-            isPointerDown = false;
         }
     }
 
@@ -100,6 +130,16 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             else
             {
                 OverPlayer1Side = false;
+            }
+
+            if(rectOverlaps(player2SideTransform, this.GetComponent<RectTransform>()))
+            {
+                overPlayer2Side = true;
+                Debug.Log("over player 2 side");
+            }
+            else
+            {
+                overPlayer2Side = false;
             }
         }
         else
