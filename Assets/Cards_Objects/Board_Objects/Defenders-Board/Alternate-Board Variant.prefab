@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -821481380393060140, guid: bcc70a5bf034a7b4f87b5979fee58560, type: 3}
+      propertyPath: player1Card
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 37275945072899233, guid: bcc70a5bf034a7b4f87b5979fee58560, type: 3}
       propertyPath: m_Name
       value: Alternate-Board Variant

@@ -11,8 +11,8 @@ public class CardActive : MonoBehaviour
     public bool Defender;
     public bool Attacker;
 
-    public bool player1Card;
-    public bool player2Card;
+    public bool player1BoardCard;
+    public bool player2BoardCard;
 
     private ScoreSystem scoreSystem;
 
@@ -38,25 +38,27 @@ public class CardActive : MonoBehaviour
             audioSource.PlayOneShot(audioClip);
         }
 
-        if (player1Card)
+
+
+        if (player1BoardCard)
         {
-            if (Defender)
+            if (Defender && !player2BoardCard)
             {
                 scoreSystem.addPointsToPlayer(llamaPoints);
             }
 
-            if (Attacker)
+            if (Attacker && !player2BoardCard)
             {
                 scoreSystem.takePointsFromPlayerTwo(llamaPoints);
             }
-        } else if (player2Card)
+        } else if (player2BoardCard)
         {
-            if (Defender)
+            if (Defender && !player1BoardCard)
             {
                 scoreSystem.addPointsToPlayerTwo(llamaPoints);
             }
 
-            if (Attacker)
+            if (Attacker && !player1BoardCard)
             {
                 scoreSystem.takePointsFromPlayer(llamaPoints);
             }

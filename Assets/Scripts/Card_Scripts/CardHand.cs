@@ -18,6 +18,8 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private RectTransform player2SideTransform;
     private bool overPlayer2Side = false;
 
+    public GameObject GameSystemsManager;
+
     public GameObject boardCard;
     public BoardSystem boardSystem;
 
@@ -38,11 +40,12 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         player2SideTransform = GameObject.Find("Player2Side").GetComponent<RectTransform>();
 
+        //Find Game Systems Manager and all required attached scripts
+        GameSystemsManager = GameObject.FindGameObjectWithTag("SystemsManager");
+        OrbSystem = GameSystemsManager.GetComponent<OrbSystem>();
+        drawSystem = GameSystemsManager.GetComponent<DrawSystem>();
+
         boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
-
-        drawSystem = GameObject.FindGameObjectWithTag("DrawSystem").GetComponent<DrawSystem>();
-
-        OrbSystem = GameObject.FindGameObjectWithTag("BattleSystem").GetComponent<OrbSystem>();
 
         orbCost = GetComponent<CardDisplay>().card.orbCost;
     }
@@ -70,19 +73,24 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         // Check to see if player has tried to play a card over player 1s side
         if (OverPlayer1Side)
         {
-            // If the card is a player 1 card then play card
+            // If the hand card is a player 1 card then play card
             if (player1Card)
             {
                 if (orbCost <= OrbSystem.playerCurrentOrbs && boardSystem.isPlayerSideAvailable() == true)
                 {
                     //Take cost from players orbs
                     OrbSystem.applyOrbCost(orbCost);
-                    //Play card
-                    boardCard.GetComponent<CardActive>().player2Card = false;
-                    boardCard.GetComponent<CardActive>().player1Card = true;
+                    //Play board card
                     boardSystem.playCard(boardCard);
                     drawSystem.availableCardSlots[handIndex] = true;
+                    //Discard hand card
                     gameObject.SetActive(false);
+                }
+                else
+                {
+                    // If the player cannot afford to play this card; return it to their hand
+                    transform.position = cachedPos;
+                    isPointerDown = false;
                 }
             }
         }else if (overPlayer2Side)
@@ -95,15 +103,19 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     //Take cost from players orbs
                     OrbSystem.applyOrbCost(orbCost);
                     //Play card
-                    boardCard.GetComponent<CardActive>().player2Card = true;
-                    boardCard.GetComponent<CardActive>().player1Card = false;
-                    boardSystem.playCard(boardCard);
+                    boardSystem.player2PlayCard(boardCard);
                     drawSystem.availableCardSlots[handIndex] = true;
                     gameObject.SetActive(false);
                 }
+                else
+                {
+                    // If the player cannot afford to play this card; return it to their hand
+                    transform.position = cachedPos;
+                    isPointerDown = false;
+                }
             }
         }
-        else if(!OverPlayer1Side && OverPlayer1Side)
+        /*else if(!OverPlayer1Side && overPlayer2Side)
         {
             if (player1Card)
             {
@@ -111,7 +123,7 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 transform.position = cachedPos;
                 isPointerDown = false;
             }
-        }
+        }*/
     }
 
     private void Update()
@@ -144,17 +156,26 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
         else
         {
-            animator.enabled = true;
-            animator.SetBool("OnHover", false);
+            if (animator)
+            {
+                animator.enabled = true;
+                animator.SetBool("OnHover", false);
+            }
         }
 
         if (isHovering)
         {
-            animator.SetBool("OnHover", true);
+            if (animator)
+            {
+                animator.SetBool("OnHover", true);
+            }
         }
         else
         {
-            animator.SetBool("OnHover", false);
+            if (animator)
+            {
+                animator.SetBool("OnHover", false);
+            }
         }
     }
 

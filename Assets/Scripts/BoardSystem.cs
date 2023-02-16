@@ -15,8 +15,9 @@ public class BoardSystem : MonoBehaviour
         {
             if (availableBoardSlots[i] == true)
             {
-                Debug.Log("Spawned Board Card");
-                Instantiate(card, boardSlots[i].position, card.transform.rotation);
+                Debug.Log("Spawned Player 1 Board Card");
+                Instantiate(card, boardSlots[i].position, card.transform.rotation, boardSlots[i]);
+                card.GetComponent<CardActive>().player1BoardCard = true;
                 availableBoardSlots[i] = false;
                 return;
             }
@@ -42,7 +43,8 @@ public class BoardSystem : MonoBehaviour
             if (availablePlayer2Slots[i] == true)
             {
                 Debug.Log("Spawned Board Card");
-                Instantiate(card, player2BoardSlots[i].position, card.transform.rotation);
+                Instantiate(card, player2BoardSlots[i].position, card.transform.rotation, player2BoardSlots[i]);
+                card.GetComponent<CardActive>().player2BoardCard = true;
                 availablePlayer2Slots[i] = false;
                 return;
             }

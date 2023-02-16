@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MunchiesEmployee_Card
   m_EditorClassIdentifier: 
   name: Munchies Employee
-  description: 'PASSIVE: -1 PV for each active enemy Attacker cards'
+  description: Mmmm Munchies
   artwork: {fileID: 21300000, guid: b6235a1102810a844bba0602f3463b8c, type: 3}
   orbCost: 3
   llamaPoints: 6

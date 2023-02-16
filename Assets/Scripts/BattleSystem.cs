@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleSystem : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class BattleSystem : MonoBehaviour
 
     private OrbSystem orbSystem;
 
+    private int turnCounter = 0;
+    public Text turnText;
+
     public BasicAI_Controller basicAI; // **FOR TESTING** //
     // Start is called before the first frame update
     void Start()
     {
+        turnText.enabled = false;
         orbSystem = GetComponent<OrbSystem>();
         canPlayCards = false;
         battleState = BattleState.START;
@@ -26,10 +31,13 @@ public class BattleSystem : MonoBehaviour
     IEnumerator BeginBattle()
     {
         Debug.Log("Starting Battle...");
+        turnCounter += 1;
+        turnText.enabled = true;
+        turnText.text = "TURN: " + turnCounter.ToString();
         yield return new WaitForSeconds(2);
         //Wait 2 seconds then it is the players turn.
         battleState = BattleState.PLAYERTURN;
-
+        turnText.enabled = false;
         yield return StartCoroutine(PlayersTurn());
     }
 
@@ -61,7 +69,11 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1);
         Debug.Log("Enemy Turn");
         basicAI.playCard();
+        turnCounter += 1;
+        turnText.text = "TURN: " + turnCounter.ToString();
+        turnText.enabled = true;
         yield return new WaitForSeconds(1.5f);
+        turnText.enabled = false;
         endEnemyTurn();
     }
 

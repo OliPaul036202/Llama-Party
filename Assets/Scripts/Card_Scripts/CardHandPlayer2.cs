@@ -36,7 +36,7 @@ public class CardHandPlayer2 : CardHand
                 //Take cost from playe 2 orbs
                 OrbSystem.applyOrbCostPlayer2(orbCost);
                 //Play card on player 2 side
-                boardCard2.GetComponent<CardActive>().player2Card = true;
+       
                 boardSystem.player2PlayCard(boardCard2);
                 gameObject.SetActive(false);
             }

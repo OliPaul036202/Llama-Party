@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b47acb27aa47c643a58891072739bfb, type: 3}
-  m_Name: NotLlama_Card
+  m_Name: AntiLlama_Card
   m_EditorClassIdentifier: 
-  name: Not a Llama
-  description: BLOCK
-  artwork: {fileID: 21300000, guid: 896aaaa133f607f47a152574f72473a6, type: 3}
-  orbCost: 3
+  name: Anti Llama
+  description: HEADBUTT
+  artwork: {fileID: 21300000, guid: 7656bb9a16ed1e74fac7f1bd4d1fba3e, type: 3}
+  orbCost: 2
   llamaPoints: 1
   Booster: 0
-  Defender: 1
-  Attacker: 0
+  Defender: 0
+  Attacker: 1
