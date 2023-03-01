@@ -10,7 +10,7 @@ public class BattleSystem : MonoBehaviour
     private BattleState battleState;
     private bool canPlayCards;
 
-    public DrawSystem drawSystem;
+    private DrawSystem drawSystem;
 
     private OrbSystem orbSystem;
 
@@ -23,6 +23,7 @@ public class BattleSystem : MonoBehaviour
     {
         turnText.enabled = false;
         orbSystem = GetComponent<OrbSystem>();
+        drawSystem = GetComponent<DrawSystem>();
         canPlayCards = false;
         battleState = BattleState.START;
         StartCoroutine(BeginBattle());
@@ -73,13 +74,14 @@ public class BattleSystem : MonoBehaviour
         turnText.text = "TURN: " + turnCounter.ToString();
         turnText.enabled = true;
         yield return new WaitForSeconds(1.5f);
-        turnText.enabled = false;
         endEnemyTurn();
+        turnText.enabled = false;
     }
 
     public void endEnemyTurn()
     {
         battleState = BattleState.PLAYERTURN;
+        Debug.Log("PLAYERS TURN NOW");
         StartCoroutine(PlayersTurn());
     }
 

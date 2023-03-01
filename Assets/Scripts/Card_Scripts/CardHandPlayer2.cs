@@ -7,7 +7,6 @@ public class CardHandPlayer2 : CardHand
 {
     private bool OverPlayer2Side = true;
     public RectTransform player2SideTransform;
-    public GameObject boardCard2;
 
     private void Start()
     {
@@ -37,7 +36,7 @@ public class CardHandPlayer2 : CardHand
                 OrbSystem.applyOrbCostPlayer2(orbCost);
                 //Play card on player 2 side
        
-                boardSystem.player2PlayCard(boardCard2);
+                boardSystem.player2PlayCard(boardCard);
                 gameObject.SetActive(false);
             }
         }

@@ -93,10 +93,13 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     isPointerDown = false;
                 }
             }
-        }else if (overPlayer2Side)
+        }
+        
+        if (overPlayer2Side)
         {
             if (player2Card)
             {
+                Debug.Log("Over Enemy Side");
                 //Check to see if the player 2 AI can afford to play this card
                 if(orbCost <= OrbSystem.player2CurrentOrbs && boardSystem.isPlayer2SideAvailable() == true)
                 {

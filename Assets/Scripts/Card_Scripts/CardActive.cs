@@ -38,27 +38,27 @@ public class CardActive : MonoBehaviour
             audioSource.PlayOneShot(audioClip);
         }
 
-
-
         if (player1BoardCard)
         {
-            if (Defender && !player2BoardCard)
+            if (Defender)
             {
                 scoreSystem.addPointsToPlayer(llamaPoints);
             }
 
-            if (Attacker && !player2BoardCard)
+            if (Attacker)
             {
                 scoreSystem.takePointsFromPlayerTwo(llamaPoints);
             }
-        } else if (player2BoardCard)
+        }
+        
+        if (player2BoardCard)
         {
-            if (Defender && !player1BoardCard)
+            if (Defender)
             {
                 scoreSystem.addPointsToPlayerTwo(llamaPoints);
             }
 
-            if (Attacker && !player1BoardCard)
+            if (Attacker)
             {
                 scoreSystem.takePointsFromPlayer(llamaPoints);
             }

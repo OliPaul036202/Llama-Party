@@ -396,8 +396,8 @@ MonoBehaviour:
   orbCost: 1
   Defender: 1
   Attacker: 0
-  player1Card: 0
-  player2Card: 0
+  player1BoardCard: 1
+  player2BoardCard: 0
   pointsText: {fileID: 5151057161477055124}
   abilityManager: {fileID: 0}
   previewCard: {fileID: 0}

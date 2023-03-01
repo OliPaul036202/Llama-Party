@@ -423,18 +423,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 48571566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f7aea8f879197e47b24415e9d0dad44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
-  boardCard: {fileID: 6410913537523125574, guid: 84b2ea80180a65744ad4c2a26b48ac75, type: 3}
+  boardCard: {fileID: 6140933820412616341, guid: 2519d7385a9b87147a1bc55f132b54c1, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
   orbCost: 0
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
-  player2Card: 1
+  player2Card: 0
+  player2SideTransform: {fileID: 0}
 --- !u!1 &60136036
 GameObject:
   m_ObjectHideFlags: 0
@@ -3074,7 +3075,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299149632}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9238f7255af399e4db684a3f164b771a, type: 3}
@@ -7230,7 +7231,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 761866321}
-  - component: {fileID: 761866320}
   - component: {fileID: 761866322}
   m_Layer: 0
   m_Name: Battle System Manager
@@ -7239,21 +7239,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &761866320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 761866319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec6730fae76faf24cb1afd9f0077d2e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawSystem: {fileID: 130643768}
-  turnText: {fileID: 1911100241}
-  basicAI: {fileID: 1172342512}
 --- !u!4 &761866321
 Transform:
   m_ObjectHideFlags: 0
@@ -10762,18 +10747,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1128824237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f7aea8f879197e47b24415e9d0dad44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
-  boardCard: {fileID: 9110586647273041146, guid: 371c566c70e354d448f489066b8c8bf0, type: 3}
+  boardCard: {fileID: 727216775914175836, guid: 798bae6c740e49c41a7c9771f2c01b1e, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
   orbCost: 0
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
-  player2Card: 1
+  player2Card: 0
+  player2SideTransform: {fileID: 0}
 --- !u!1 &1133615566
 GameObject:
   m_ObjectHideFlags: 0
@@ -12930,18 +12916,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1325251056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f7aea8f879197e47b24415e9d0dad44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
-  boardCard: {fileID: 7562644831254490904, guid: a0b34152ad78a2046a470be99d985105, type: 3}
+  boardCard: {fileID: 2722498565613829282, guid: 4202da5ec6175a44098b9572072974cd, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
   orbCost: 0
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
-  player2Card: 1
+  player2Card: 0
+  player2SideTransform: {fileID: 0}
 --- !u!1 &1354451392
 GameObject:
   m_ObjectHideFlags: 0
@@ -13106,7 +13093,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 761866320}
+      - m_Target: {fileID: 1545904155}
         m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
         m_MethodName: endPlayerTurn
         m_Mode: 1
@@ -14879,6 +14866,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1545904154}
+  - component: {fileID: 1545904155}
   - component: {fileID: 1545904152}
   - component: {fileID: 1545904151}
   m_Layer: 0
@@ -14950,6 +14938,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1545904155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545904150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6730fae76faf24cb1afd9f0077d2e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnText: {fileID: 1911100241}
+  basicAI: {fileID: 1172342512}
 --- !u!1 &1548112013
 GameObject:
   m_ObjectHideFlags: 0
@@ -15160,18 +15162,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1575252553}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f7aea8f879197e47b24415e9d0dad44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
-  boardCard: {fileID: 1319747302458569012, guid: 830948ee2bbb3504a894a185c28a28e3, type: 3}
+  boardCard: {fileID: 7129226376997460301, guid: ced224fa9e44d4445963d72e3100bc3c, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
   orbCost: 0
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
-  player2Card: 1
+  player2Card: 0
+  player2SideTransform: {fileID: 0}
 --- !u!1 &1591962037
 GameObject:
   m_ObjectHideFlags: 0
@@ -15557,18 +15560,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1647357403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f7aea8f879197e47b24415e9d0dad44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
-  boardCard: {fileID: 3643880150857549293, guid: 4ec326028f5ad624088d11fee073a3c3, type: 3}
+  boardCard: {fileID: 8940129262602640023, guid: 82df30bf6eebf854fa2283e80e4282a1, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
   orbCost: 0
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
-  player2Card: 1
+  player2Card: 0
+  player2SideTransform: {fileID: 0}
 --- !u!1 &1649701895 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8ab222721713eeb4ea849bfa49a5fa16, type: 3}

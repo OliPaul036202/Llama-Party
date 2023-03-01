@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicAI_Controller : MonoBehaviour
 {
-    public List<CardHand> deck;
+    public List<CardHandPlayer2> deck;
 
     public void playCard()
     {
