@@ -183,7 +183,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: '2
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 311ba3725e90cb1498993634a8125de1, type: 2}
   m_sharedMaterial: {fileID: -5236135886015448682, guid: 311ba3725e90cb1498993634a8125de1, type: 2}
@@ -396,11 +398,11 @@ MonoBehaviour:
   Attacker: 1
   player1BoardCard: 0
   player2BoardCard: 1
-  pointsText: {fileID: 2719422233364560574, guid: 82df30bf6eebf854fa2283e80e4282a1, type: 3}
+  pointsText: {fileID: 4058498346528747847}
   abilityManager: {fileID: 0}
   previewCard: {fileID: 0}
   activeCard: {fileID: 11400000, guid: 2167870a736bb9349b0ee02f82c62885, type: 2}
-  audioClip: {fileID: 8300000, guid: c413579ffe006fb4f95ff45c431ef76d, type: 3}
+  audioClip: {fileID: 8300000, guid: ff9bc996ff35a4c4ebe7baf5b851a321, type: 3}
 --- !u!65 &6874096474976746476
 BoxCollider:
   m_ObjectHideFlags: 0

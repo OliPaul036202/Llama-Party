@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BattleSystem : MonoBehaviour
 {
-    public enum BattleState { START, PLAYERTURN, ENEMYTURN, WIN, LOST}
+    public enum BattleState { START, PLAYERTURN, ENEMYTURN, BATTLE, WIN, LOST}
 
     private BattleState battleState;
     private bool canPlayCards;
@@ -80,8 +80,16 @@ public class BattleSystem : MonoBehaviour
 
     public void endEnemyTurn()
     {
+        battleState = BattleState.BATTLE;
+        StartCoroutine(BattleStage());
+    }
+
+    IEnumerator BattleStage()
+    {
+        Debug.Log("DO BATTLE!");
+
+        yield return new WaitForSeconds(1f);
         battleState = BattleState.PLAYERTURN;
-        Debug.Log("PLAYERS TURN NOW");
         StartCoroutine(PlayersTurn());
     }
 

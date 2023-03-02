@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Mmmm Munchies
   artwork: {fileID: 21300000, guid: b6235a1102810a844bba0602f3463b8c, type: 3}
   orbCost: 3
-  llamaPoints: 6
+  llamaPoints: 3
   Booster: 0
   Defender: 0
   Attacker: 1
