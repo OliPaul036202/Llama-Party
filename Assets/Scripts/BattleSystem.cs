@@ -10,12 +10,19 @@ public class BattleSystem : MonoBehaviour
     private BattleState battleState;
     private bool canPlayCards;
 
+    //Get draw system so both player 1 and 2 can draw cards at the end of each of their turns.
     private DrawSystem drawSystem;
 
+    //Get orb system to reset orbs back to max after turn
     private OrbSystem orbSystem;
 
+    //Keep track of which turn the game is currently on. // **NEED TO ADD MAX TURN WHEN GAMEPLAY IS FINISHED** //
     private int turnCounter = 0;
     public Text turnText;
+
+    //Get all player 1 current active cards
+    [SerializeField]
+    private BoardSystem boardSystem;
 
     public BasicAI_Controller basicAI; // **FOR TESTING** //
     // Start is called before the first frame update
@@ -24,6 +31,10 @@ public class BattleSystem : MonoBehaviour
         turnText.enabled = false;
         orbSystem = GetComponent<OrbSystem>();
         drawSystem = GetComponent<DrawSystem>();
+
+        //Get boardsystem to keep track active cards on board
+        boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
+
         canPlayCards = false;
         battleState = BattleState.START;
         StartCoroutine(BeginBattle());
@@ -58,6 +69,15 @@ public class BattleSystem : MonoBehaviour
 
     public void endPlayerTurn()
     {
+        int i;
+        for(i = 0; i < boardSystem.availableBoardSlots.Length; i++)
+        {
+            if(boardSystem.availableBoardSlots[i] == false)
+            {
+                boardSystem.boardSlots.
+            }
+        }
+
         canPlayCards = false;
         battleState = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
@@ -81,17 +101,7 @@ public class BattleSystem : MonoBehaviour
     public void endEnemyTurn()
     {
         battleState = BattleState.BATTLE;
-        StartCoroutine(BattleStage());
-    }
-
-    IEnumerator BattleStage()
-    {
-        Debug.Log("DO BATTLE!");
-
-        yield return new WaitForSeconds(1f);
         battleState = BattleState.PLAYERTURN;
         StartCoroutine(PlayersTurn());
     }
-
-    
 }

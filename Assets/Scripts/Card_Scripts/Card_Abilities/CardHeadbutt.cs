@@ -14,13 +14,25 @@ public class CardHeadbutt : MonoBehaviour
     private float delay = 1.5f;
     private bool canActivate = false;
 
-    // Start is called before the first frame update
+    //So Battle System can know which cards are activated or not
+    public bool headbuttActive = false;
+
+    //Check if this card belongs to player 1 or player 2 and how many llama points this card has
+    private CardActive cardActive;
+
+    //Get score system so that the relavant amount of llama points are removed from opposing player
+    public ScoreSystem scoreSystem;
+
     void Start()
     {
         checkBoxSpriteRend.enabled = false;
+        //Get card active script on this game object
+        cardActive = GetComponent<CardActive>();
+
+        //Find score system script on different game object
+        scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         delay -= Time.deltaTime;
@@ -33,10 +45,12 @@ public class CardHeadbutt : MonoBehaviour
         if (!headbuttToggle)
         {
             checkBoxSpriteRend.enabled = false;
+            headbuttActive = false;
         }
         else if (headbuttToggle)
         {
             checkBoxSpriteRend.enabled = true;
+            headbuttActive = true;
         }
     }
 
@@ -54,6 +68,28 @@ public class CardHeadbutt : MonoBehaviour
                 {
                     headbuttToggle = false;
                 }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Called by the battle system in the battle phase. Is executed when the player activates the Headbutt ability on this card.
+    /// </summary>
+    public void attackPlayer()
+    {
+        //Check to see if the headbutt ability has been activated for this card
+        if (headbuttActive)
+        {
+            //Check which player this card belongs to
+            if (cardActive.player1BoardCard)
+            {
+                //Take llama points away from player 2 if this card belongs to player 1
+                scoreSystem.player2Score -= cardActive.llamaPoints;
+            }
+            else if (cardActive.player2BoardCard)
+            {
+                //Take llama points away from player 1 if this card belongs to player 2
+                scoreSystem.playerScore -= cardActive.llamaPoints;
             }
         }
     }
