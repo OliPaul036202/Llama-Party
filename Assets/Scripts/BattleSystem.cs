@@ -24,6 +24,13 @@ public class BattleSystem : MonoBehaviour
     [SerializeField]
     private BoardSystem boardSystem;
 
+    //Change button
+    public Image buttonImage;
+    public Sprite buttonUp;
+    public Sprite buttonDown;
+    public Text buttonUpText;
+    public Text buttonDownText;
+
     public BasicAI_Controller basicAI; // **FOR TESTING** //
     // Start is called before the first frame update
     void Start()
@@ -34,7 +41,7 @@ public class BattleSystem : MonoBehaviour
 
         //Get boardsystem to keep track active cards on board
         boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
-
+        buttonDownText.enabled = false;
         canPlayCards = false;
         battleState = BattleState.START;
         StartCoroutine(BeginBattle());
@@ -64,21 +71,18 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1);
         Debug.Log("Players Turn");
 
+        buttonImage.sprite = buttonUp;
+        buttonUpText.enabled = true;
+        buttonDownText.enabled = false;
         canPlayCards = true;
     }
 
     public void endPlayerTurn()
     {
-        int i;
-        for(i = 0; i < boardSystem.availableBoardSlots.Length; i++)
-        {
-            if(boardSystem.availableBoardSlots[i] == false)
-            {
-                boardSystem.boardSlots.
-            }
-        }
-
         canPlayCards = false;
+        buttonImage.sprite = buttonDown;
+        buttonUpText.enabled = false;
+        buttonDownText.enabled = true;
         battleState = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
     }
