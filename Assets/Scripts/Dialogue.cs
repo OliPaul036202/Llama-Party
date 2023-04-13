@@ -15,9 +15,12 @@ public class Dialogue : MonoBehaviour
 
     public BattleSystem gameManager;
 
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         gameManager = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<BattleSystem>();
         textComponent.text = string.Empty;
         startDialogue();
@@ -52,6 +55,7 @@ public class Dialogue : MonoBehaviour
         foreach(char c in lines[index].ToCharArray())
         {
             textComponent.text += c;
+            audioSource.Play();
             yield return new WaitForSeconds(textSpeed);
         }
     }
