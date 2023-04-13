@@ -18,6 +18,7 @@ public class BattleSystem : MonoBehaviour
 
     //Keep track of which turn the game is currently on. // **NEED TO ADD MAX TURN WHEN GAMEPLAY IS FINISHED** //
     private int turnCounter = 0;
+    public GameObject turnPanel;
     public Text turnText;
 
     //Get all player 1 current active cards
@@ -31,32 +32,42 @@ public class BattleSystem : MonoBehaviour
     public Text buttonUpText;
     public Text buttonDownText;
 
+    //For tutorial
+    public GameObject DialogueBoxCards;
+    private bool hasSeenTutorial = false;
+
+    //Audio
+    public AudioClip bells;
+    private AudioSource audioSource;
+
     public BasicAI_Controller basicAI; // **FOR TESTING** //
     // Start is called before the first frame update
     void Start()
     {
-        turnText.enabled = false;
+        turnPanel.SetActive(false);
         orbSystem = GetComponent<OrbSystem>();
         drawSystem = GetComponent<DrawSystem>();
+
+        audioSource = GetComponent<AudioSource>();
 
         //Get boardsystem to keep track active cards on board
         boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
         buttonDownText.enabled = false;
         canPlayCards = false;
         battleState = BattleState.START;
-        StartCoroutine(BeginBattle());
     }
 
-    IEnumerator BeginBattle()
+    public IEnumerator BeginBattle()
     {
         Debug.Log("Starting Battle...");
         turnCounter += 1;
-        turnText.enabled = true;
+        turnPanel.SetActive(true);
         turnText.text = "TURN: " + turnCounter.ToString();
-        yield return new WaitForSeconds(2);
+        audioSource.Play();
+        yield return new WaitForSeconds(3);
         //Wait 2 seconds then it is the players turn.
         battleState = BattleState.PLAYERTURN;
-        turnText.enabled = false;
+        turnPanel.SetActive(false);
         yield return StartCoroutine(PlayersTurn());
     }
 
@@ -70,6 +81,12 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         Debug.Log("Players Turn");
+
+        if (!hasSeenTutorial)
+        {
+            DialogueBoxCards.SetActive(true);
+            hasSeenTutorial = true;
+        }
 
         buttonImage.sprite = buttonUp;
         buttonUpText.enabled = true;
@@ -94,12 +111,15 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(1);
         Debug.Log("Enemy Turn");
         basicAI.playCard();
+        yield return new WaitForSeconds(1);
         turnCounter += 1;
+        turnPanel.SetActive(true);
         turnText.text = "TURN: " + turnCounter.ToString();
         turnText.enabled = true;
-        yield return new WaitForSeconds(1.5f);
+        audioSource.Play();
+        yield return new WaitForSeconds(3f);
         endEnemyTurn();
-        turnText.enabled = false;
+        turnPanel.SetActive(false);
     }
 
     public void endEnemyTurn()
