@@ -100,6 +100,27 @@ public class BattleSystem : MonoBehaviour
         buttonImage.sprite = buttonDown;
         buttonUpText.enabled = false;
         buttonDownText.enabled = true;
+
+        //Loop through all active player 1 cards
+        for(int i = 0; i < boardSystem.availableBoardSlots.Length; i++)
+        {
+            //Check to see if a card has been played on this slot
+            if(boardSystem.availableBoardSlots[i] == false)
+            {
+                Debug.Log("Found active headbutt card");
+                //Get child card from slot
+                GameObject childCard = boardSystem.boardSlots[i].GetChild(0).gameObject;
+                CardHeadbutt headButtCard = childCard.GetComponent<CardHeadbutt>();
+                if (headButtCard)
+                {
+                    if (headButtCard.headbuttActive)
+                    {
+                        headButtCard.attackPlayer();
+                    }
+                }
+            }
+        }
+
         battleState = BattleState.ENEMYTURN;
         StartCoroutine(EnemyTurn());
     }

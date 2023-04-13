@@ -8,7 +8,6 @@ public class OrbSystem : MonoBehaviour
 {
     private int playerMaxOrbs;
     public int playerCurrentOrbs;
-    public TMP_Text player1OrbText;
     public Image orb1;
     public Image orb2;
     public Image orb3;
@@ -17,7 +16,6 @@ public class OrbSystem : MonoBehaviour
 
     private int player2MaxOrbs;
     public int player2CurrentOrbs;
-    public TMP_Text player2OrbText;
     void Start()
     {
         playerMaxOrbs = 3;
@@ -34,10 +32,6 @@ public class OrbSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        player1OrbText.text = playerCurrentOrbs.ToString() + "/3";
-
-        player2OrbText.text = player2CurrentOrbs.ToString() + "/3";
-
         if (playerCurrentOrbs == 3)
         {
             orb1.sprite = purpleOrb;

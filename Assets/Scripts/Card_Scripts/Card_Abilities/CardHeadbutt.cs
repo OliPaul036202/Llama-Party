@@ -92,5 +92,6 @@ public class CardHeadbutt : MonoBehaviour
                 scoreSystem.playerScore -= cardActive.llamaPoints;
             }
         }
+        Destroy(gameObject);
     }
 }
