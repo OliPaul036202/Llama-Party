@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   llamaPoints: 3
-  orbCost: 0
+  orbCost: 3
   Defender: 1
   Attacker: 0
   player1BoardCard: 1

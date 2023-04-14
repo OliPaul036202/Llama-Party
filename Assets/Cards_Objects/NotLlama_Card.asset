@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: NotLlama_Card
   m_EditorClassIdentifier: 
   name: Not a Llama
-  description: BLOCK
+  description: FORTIFY (Left Click to Activate)
   artwork: {fileID: 21300000, guid: 896aaaa133f607f47a152574f72473a6, type: 3}
-  orbCost: 3
-  llamaPoints: 1
+  orbCost: 2
+  llamaPoints: 2
   Booster: 0
   Defender: 1
   Attacker: 0

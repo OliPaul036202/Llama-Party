@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b47acb27aa47c643a58891072739bfb, type: 3}
-  m_Name: Llarper_Card
+  m_Name: Wandara_Card
   m_EditorClassIdentifier: 
-  name: Llarper
-  description: FORTIFY (Left Click to Activate)
-  artwork: {fileID: 21300000, guid: 33d283f9c51bf6c4287d3067e69caa21, type: 3}
-  orbCost: 3
-  llamaPoints: 3
+  name: Wandara
+  description: HEADBUTT (Left Click to Activate)
+  artwork: {fileID: 21300000, guid: 5ef94b054f832144ab723a6bdeb3de38, type: 3}
+  orbCost: 1
+  llamaPoints: 1
   Booster: 0
-  Defender: 1
-  Attacker: 0
+  Defender: 0
+  Attacker: 1

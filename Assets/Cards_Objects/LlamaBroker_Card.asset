@@ -15,8 +15,8 @@ MonoBehaviour:
   name: Llama Broker
   description: 'YELL: Gain one additional Llama Orb this turn.'
   artwork: {fileID: 21300000, guid: c1ec7436cba1dcb4d84ce932f20a9a5c, type: 3}
-  orbCost: 2
-  llamaPoints: 1
+  orbCost: 1
+  llamaPoints: 2
   Booster: 0
   Defender: 1
   Attacker: 0
