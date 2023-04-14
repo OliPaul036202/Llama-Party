@@ -23,6 +23,11 @@ public class CardHeadbutt : MonoBehaviour
     //Get score system so that the relavant amount of llama points are removed from opposing player
     public ScoreSystem scoreSystem;
 
+    //Get enemy portrait for charge
+    private Transform enemyPortraitPos;
+    public float chargeSpeed = 50f;
+    private bool canCharge = false;
+
     void Start()
     {
         checkBoxSpriteRend.enabled = false;
@@ -31,6 +36,8 @@ public class CardHeadbutt : MonoBehaviour
 
         //Find score system script on different game object
         scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
+
+        enemyPortraitPos = GameObject.FindGameObjectWithTag("Player2Portrait").transform;
     }
 
     void Update()
@@ -51,6 +58,12 @@ public class CardHeadbutt : MonoBehaviour
         {
             checkBoxSpriteRend.enabled = true;
             headbuttActive = true;
+        }
+
+        if (canCharge)
+        {
+            float step = chargeSpeed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, enemyPortraitPos.position, step);
         }
     }
 
@@ -92,6 +105,19 @@ public class CardHeadbutt : MonoBehaviour
                 scoreSystem.playerScore -= cardActive.llamaPoints;
             }
         }
-        Destroy(gameObject);
+        //Charge at enemy portrait and HEADBUTT
+        transform.position = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
+        canCharge = true;
+
+        //Destroy(gameObject);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player2Portrait")
+        {
+            Debug.Log("Collided");
+            Destroy(gameObject);
+        }
     }
 }

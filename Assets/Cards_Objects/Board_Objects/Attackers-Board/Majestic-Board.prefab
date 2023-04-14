@@ -182,9 +182,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2067237749396104206}
   - component: {fileID: 6818916710637530611}
+  - component: {fileID: 8196189020958150919}
   - component: {fileID: 1165766017642125258}
   - component: {fileID: -2104983915290536962}
-  - component: {fileID: 8196189020958150919}
+  - component: {fileID: 5180662281541279306}
   m_Layer: 0
   m_Name: Majestic-Board
   m_TagString: Untagged
@@ -235,6 +236,22 @@ MonoBehaviour:
   previewCard: {fileID: 0}
   activeCard: {fileID: 11400000, guid: 4e32d927f16a7be4a8a11412de91a3ec, type: 2}
   audioClip: {fileID: 8300000, guid: ff9bc996ff35a4c4ebe7baf5b851a321, type: 3}
+--- !u!114 &8196189020958150919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225994289396083888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4698fc589eeb54f4e906563de96a4402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkBoxSpriteRend: {fileID: 4208360367864728625}
+  headbuttActive: 0
+  scoreSystem: {fileID: 0}
+  chargeSpeed: 1400
 --- !u!65 &1165766017642125258
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -344,21 +361,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8196189020958150919
-MonoBehaviour:
+--- !u!54 &5180662281541279306
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225994289396083888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4698fc589eeb54f4e906563de96a4402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkBoxSpriteRend: {fileID: 4208360367864728625}
-  headbuttActive: 0
-  scoreSystem: {fileID: 0}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1284126056044184415
 GameObject:
   m_ObjectHideFlags: 0

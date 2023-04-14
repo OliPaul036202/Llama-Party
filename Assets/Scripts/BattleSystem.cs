@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BattleSystem : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class BattleSystem : MonoBehaviour
     private int turnCounter = 0;
     public GameObject turnPanel;
     public Text turnText;
+
+    public TMP_Text HUDTurnText;
 
     //Get all player 1 current active cards
     [SerializeField]
@@ -63,6 +66,7 @@ public class BattleSystem : MonoBehaviour
         turnCounter += 1;
         turnPanel.SetActive(true);
         turnText.text = "TURN: " + turnCounter.ToString();
+        HUDTurnText.text = turnCounter.ToString();
         audioSource.Play();
         yield return new WaitForSeconds(3);
         //Wait 2 seconds then it is the players turn.
@@ -116,6 +120,7 @@ public class BattleSystem : MonoBehaviour
                     if (headButtCard.headbuttActive)
                     {
                         headButtCard.attackPlayer();
+                        boardSystem.availableBoardSlots[i] = true;
                     }
                 }
             }
@@ -137,6 +142,7 @@ public class BattleSystem : MonoBehaviour
         turnPanel.SetActive(true);
         turnText.text = "TURN: " + turnCounter.ToString();
         turnText.enabled = true;
+        HUDTurnText.text = turnCounter.ToString();
         audioSource.Play();
         yield return new WaitForSeconds(3f);
         endEnemyTurn();
