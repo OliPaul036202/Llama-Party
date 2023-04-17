@@ -345,10 +345,10 @@ GameObject:
   m_Component:
   - component: {fileID: 60657753224312685}
   - component: {fileID: 4680384495234707511}
+  - component: {fileID: -5896154225246064063}
   - component: {fileID: 3108881675154234020}
   - component: {fileID: 3026353663064807588}
   - component: {fileID: 4088699588247509968}
-  - component: {fileID: -5896154225246064063}
   m_Layer: 0
   m_Name: NotLlama-Board
   m_TagString: ActiveDefender
@@ -399,6 +399,21 @@ MonoBehaviour:
   previewCard: {fileID: 0}
   activeCard: {fileID: 11400000, guid: 003cd7d9d5d68c44a9da7e3bb8d5d507, type: 2}
   audioClip: {fileID: 8300000, guid: c413579ffe006fb4f95ff45c431ef76d, type: 3}
+--- !u!114 &-5896154225246064063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650823842684212281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c950d2b8f7dd44ba6f31cebed1ad40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkBoxSpriteRend: {fileID: 7405374151893390857}
+  fortifyActive: 0
+  scoreSystem: {fileID: 0}
 --- !u!65 &3108881675154234020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -528,19 +543,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-5896154225246064063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8650823842684212281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c950d2b8f7dd44ba6f31cebed1ad40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkBoxSpriteRend: {fileID: 7405374151893390857}
 --- !u!1 &8670543297725272677
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,7 +569,7 @@ Transform:
   m_GameObject: {fileID: 8670543297725272677}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 2, z: -0}
-  m_LocalScale: {x: 84.00004, y: 84.00009, z: 50.000084}
+  m_LocalScale: {x: 67.200035, y: 67.20009, z: 40.000076}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 60657753224312685}
@@ -614,7 +616,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 314e97fc6ff5a1d489b27423d61a2a37, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 833761cbdb4898a479194be48699bd03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

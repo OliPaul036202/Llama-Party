@@ -601,10 +601,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7185556750918907298}
   - component: {fileID: 7906338629794026829}
+  - component: {fileID: -9107427305068194667}
   - component: {fileID: 1712149878312922249}
   - component: {fileID: 2832294562965899032}
   - component: {fileID: 980353792877619373}
-  - component: {fileID: -9107427305068194667}
+  - component: {fileID: 2829690845619353468}
   m_Layer: 0
   m_Name: Llarper-BoardRep
   m_TagString: ActiveDefender
@@ -655,6 +656,22 @@ MonoBehaviour:
   previewCard: {fileID: 0}
   activeCard: {fileID: 11400000, guid: 34d99697767fbbd44b0cc16d125edafa, type: 2}
   audioClip: {fileID: 8300000, guid: c413579ffe006fb4f95ff45c431ef76d, type: 3}
+--- !u!114 &-9107427305068194667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7562644831254490904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c950d2b8f7dd44ba6f31cebed1ad40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkBoxSpriteRend: {fileID: 3191698706157424245}
+  fortifyActive: 0
+  scoreSystem: {fileID: 0}
+  chargeSpeed: 1400
 --- !u!65 &1712149878312922249
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -784,16 +801,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-9107427305068194667
-MonoBehaviour:
+--- !u!54 &2829690845619353468
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7562644831254490904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98c950d2b8f7dd44ba6f31cebed1ad40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkBoxSpriteRend: {fileID: 3191698706157424245}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

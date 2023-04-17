@@ -45,6 +45,7 @@ public class BattleSystem : MonoBehaviour
 
     //Quit, Next Level buttons for when game ends
     public GameObject winPanelMenu;
+    public GameObject losePanelMenu;
 
     //Audio
     public AudioClip bells;
@@ -120,9 +121,11 @@ public class BattleSystem : MonoBehaviour
             //Check to see if a card has been played on this slot
             if(boardSystem.availableBoardSlots[i] == false)
             {
-                Debug.Log("Found active headbutt card");
+                Debug.Log("Found active card");
                 //Get child card from slot
                 GameObject childCard = boardSystem.boardSlots[i].GetChild(0).gameObject;
+
+                //Check to see if child card has headbutt script
                 CardHeadbutt headButtCard = childCard.GetComponent<CardHeadbutt>();
                 if (headButtCard)
                 {
@@ -130,6 +133,19 @@ public class BattleSystem : MonoBehaviour
                     {
                         headButtCard.attackPlayer();
                         boardSystem.availableBoardSlots[i] = true;
+                    }
+                }
+                else
+                {
+                    //Check to see if child card has fortify script
+                    CardFortify fortifyCard = childCard.GetComponent<CardFortify>();
+                    if (fortifyCard)
+                    {
+                        if (fortifyCard.fortifyActive)
+                        {
+                            fortifyCard.fortifyPlayer();
+                            boardSystem.availableBoardSlots[i] = true;
+                        }
                     }
                 }
             }
@@ -191,6 +207,7 @@ public class BattleSystem : MonoBehaviour
             turnPanel.SetActive(true);
             turnText.text = "LOST";
             turnText.enabled = true;
+            losePanelMenu.SetActive(true);
         }
     }
 }
