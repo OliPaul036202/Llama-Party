@@ -6,7 +6,7 @@ using TMPro;
 
 public class BattleSystem : MonoBehaviour
 {
-    public enum BattleState { START, PLAYERTURN, ENEMYTURN, BATTLE, WIN, LOST}
+    public enum BattleState { START, PLAYERTURN, ENEMYTURN, WIN, LOST}
 
     private BattleState battleState;
     private bool canPlayCards;
@@ -16,6 +16,9 @@ public class BattleSystem : MonoBehaviour
 
     //Get orb system to reset orbs back to max after turn
     private OrbSystem orbSystem;
+
+    //Get score system to determine who won at the end of turn 7 - The final turn
+    private ScoreSystem scoreSystem;
 
     //Keep track of which turn the game is currently on. // **NEED TO ADD MAX TURN WHEN GAMEPLAY IS FINISHED** //
     private int turnCounter = 0;
@@ -35,9 +38,13 @@ public class BattleSystem : MonoBehaviour
     public Text buttonUpText;
     public Text buttonDownText;
 
-    //For tutorial
+    //For tutorial & story
     public GameObject DialogueBoxCards;
+    public GameObject DialogueBoxWin;
     private bool hasSeenTutorial = false;
+
+    //Quit, Next Level buttons for when game ends
+    public GameObject winPanelMenu;
 
     //Audio
     public AudioClip bells;
@@ -50,6 +57,8 @@ public class BattleSystem : MonoBehaviour
         turnPanel.SetActive(false);
         orbSystem = GetComponent<OrbSystem>();
         drawSystem = GetComponent<DrawSystem>();
+
+        scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
 
         audioSource = GetComponent<AudioSource>();
 
@@ -145,14 +154,43 @@ public class BattleSystem : MonoBehaviour
         HUDTurnText.text = turnCounter.ToString();
         audioSource.Play();
         yield return new WaitForSeconds(3f);
-        endEnemyTurn();
-        turnPanel.SetActive(false);
+
+        //Check to see if the game has reached turn 7
+        if(turnCounter == 8)
+        {
+            endGame();
+        }else if(turnCounter < 8)
+        {
+            endEnemyTurn();
+            turnPanel.SetActive(false);
+        }
     }
 
     public void endEnemyTurn()
     {
-        battleState = BattleState.BATTLE;
         battleState = BattleState.PLAYERTURN;
         StartCoroutine(PlayersTurn());
+    }
+
+    /// <summary>
+    /// End game with a result of who won
+    /// </summary>
+    void endGame()
+    {
+        //Let the player know if they won or not at the end of the game by comparing player 1 and player 2 scores
+        //Only the player needs to know visually
+        if(scoreSystem.playerScore > scoreSystem.player2Score)
+        {
+            turnPanel.SetActive(true);
+            turnText.text = "WIN";
+            turnText.enabled = true;
+            DialogueBoxWin.SetActive(true);
+            winPanelMenu.SetActive(true);
+        }else if(scoreSystem.playerScore <= scoreSystem.player2Score)
+        {
+            turnPanel.SetActive(true);
+            turnText.text = "LOST";
+            turnText.enabled = true;
+        }
     }
 }

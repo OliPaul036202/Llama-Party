@@ -108,12 +108,11 @@ public class CardHeadbutt : MonoBehaviour
         //Charge at enemy portrait and HEADBUTT
         transform.position = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
         canCharge = true;
-
-        //Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider other)
     {
+        //Destroy this gameobject on collision with player 2 portrait
         if (other.gameObject.tag == "Player2Portrait")
         {
             Debug.Log("Collided");
