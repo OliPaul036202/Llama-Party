@@ -535,7 +535,7 @@ Transform:
   m_GameObject: {fileID: 7588897658594971687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2509334466480628686}
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3581b0833b79a134aa7d68b5e150803b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  llamaPoints: 1
+  llamaPoints: 2
   orbCost: 2
   Defender: 1
   Attacker: 0
@@ -566,7 +566,7 @@ MonoBehaviour:
   pointsText: {fileID: 7963213872269963543}
   abilityManager: {fileID: 0}
   previewCard: {fileID: 0}
-  activeCard: {fileID: 11400000, guid: 9aaa61bb94a662a43b9876f1835a271e, type: 2}
+  activeCard: {fileID: 11400000, guid: 003cd7d9d5d68c44a9da7e3bb8d5d507, type: 2}
   audioClip: {fileID: 8300000, guid: c413579ffe006fb4f95ff45c431ef76d, type: 3}
 --- !u!65 &3876671457777397127
 BoxCollider:

@@ -317,7 +317,7 @@ MonoBehaviour:
   pointsText: {fileID: 2891179480975849833}
   abilityManager: {fileID: 0}
   previewCard: {fileID: 0}
-  activeCard: {fileID: 11400000, guid: 2167870a736bb9349b0ee02f82c62885, type: 2}
+  activeCard: {fileID: 11400000, guid: b725c228cfe05c44684244b5ace3ac89, type: 2}
   audioClip: {fileID: 8300000, guid: ff9bc996ff35a4c4ebe7baf5b851a321, type: 3}
 --- !u!65 &1906821402385086548
 BoxCollider:
