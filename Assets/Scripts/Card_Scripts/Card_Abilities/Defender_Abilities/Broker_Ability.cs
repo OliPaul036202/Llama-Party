@@ -7,8 +7,12 @@ public class Broker_Ability : MonoBehaviour
     private OrbSystem orbSystem;
     void Start()
     {
-        orbSystem = GameObject.FindGameObjectWithTag("BattleSystem").GetComponent<OrbSystem>();
+        orbSystem = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<OrbSystem>();
 
-        orbSystem.playerCurrentOrbs += 1;
+        if (orbSystem)
+        {
+            Debug.Log("Broker Ability activated");
+            orbSystem.playerCurrentOrbs += 1;
+        }
     }
 }

@@ -14,7 +14,7 @@ public class CardHandPlayer2 : CardHand
 
         boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
 
-        OrbSystem = GameObject.FindGameObjectWithTag("BattleSystem").GetComponent<OrbSystem>();
+        OrbSystem = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<OrbSystem>();
     }
 
     private void Update()

@@ -161,7 +161,9 @@ public class BattleSystem : MonoBehaviour
         orbSystem.resetOrbs();
         yield return new WaitForSeconds(1);
         Debug.Log("Enemy Turn");
+
         basicAI.playCard();
+
         yield return new WaitForSeconds(1);
         turnCounter += 1;
         turnPanel.SetActive(true);

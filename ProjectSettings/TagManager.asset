@@ -8,7 +8,6 @@ TagManager:
   - BoardSystem
   - DrawSystem
   - ScoreSystem
-  - BattleSystem
   - AbilityManager
   - ActiveDefender
   - PreviewCard
