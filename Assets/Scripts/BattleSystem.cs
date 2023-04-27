@@ -158,10 +158,13 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         //AI turn
-        orbSystem.resetOrbs();
         yield return new WaitForSeconds(1);
         Debug.Log("Enemy Turn");
 
+        basicAI.playCard();
+        yield return new WaitForSeconds(0.5f);
+        basicAI.playCard();
+        yield return new WaitForSeconds(0.5f);
         basicAI.playCard();
 
         yield return new WaitForSeconds(1);
@@ -173,7 +176,7 @@ public class BattleSystem : MonoBehaviour
         audioSource.Play();
         yield return new WaitForSeconds(3f);
 
-        //Check to see if the game has reached turn 7
+        //Check to see if the game has reached the end of turn 7
         if(turnCounter == 8)
         {
             endGame();

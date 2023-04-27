@@ -128,15 +128,13 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 }
             }
         }
-        /*else if(!OverPlayer1Side && overPlayer2Side)
+
+        if (Input.GetMouseButtonUp(1))
         {
-            if (player1Card)
-            {
-                // If the player cannot afford to play this card; return it to their hand
-                transform.position = cachedPos;
-                isPointerDown = false;
-            }
-        }*/
+            // If the player cannot afford to play this card; return it to their hand
+            transform.position = cachedPos;
+            isPointerDown = false;
+        }
     }
 
     private void Update()

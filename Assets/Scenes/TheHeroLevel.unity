@@ -543,7 +543,7 @@ MonoBehaviour:
   boardCard: {fileID: 3759794007034100526, guid: 51f05bad78bffca4bb5adedf7a5a3380, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 2
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -1450,7 +1450,7 @@ MonoBehaviour:
   boardCard: {fileID: 2082310050732336553, guid: 782930e7bf1c0e34eb5f93e8c6432f82, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -6180,7 +6180,7 @@ MonoBehaviour:
   boardCard: {fileID: 3960441020319025981, guid: 1a9c94a27681f1b4b9e2c0cec3c334c1, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -6341,7 +6341,7 @@ MonoBehaviour:
   boardCard: {fileID: 3960441020319025981, guid: 1a9c94a27681f1b4b9e2c0cec3c334c1, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -6498,7 +6498,7 @@ MonoBehaviour:
   boardCard: {fileID: 3960441020319025981, guid: 1a9c94a27681f1b4b9e2c0cec3c334c1, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -14879,7 +14879,7 @@ MonoBehaviour:
   boardCard: {fileID: 3960441020319025981, guid: 1a9c94a27681f1b4b9e2c0cec3c334c1, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -15930,7 +15930,7 @@ MonoBehaviour:
   boardCard: {fileID: 7588897658594971687, guid: 4548003bce250484689501de3898a9f6, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 2
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -17532,7 +17532,7 @@ MonoBehaviour:
   boardCard: {fileID: 2082310050732336553, guid: 782930e7bf1c0e34eb5f93e8c6432f82, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -17912,7 +17912,7 @@ MonoBehaviour:
   boardCard: {fileID: 2082310050732336553, guid: 782930e7bf1c0e34eb5f93e8c6432f82, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -19858,7 +19858,7 @@ MonoBehaviour:
   boardCard: {fileID: 2082310050732336553, guid: 782930e7bf1c0e34eb5f93e8c6432f82, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -23413,7 +23413,7 @@ MonoBehaviour:
   boardCard: {fileID: 7588897658594971687, guid: 4548003bce250484689501de3898a9f6, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 2
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -23568,6 +23568,7 @@ MonoBehaviour:
   - {fileID: 1367515597}
   - {fileID: 1072522792}
   - {fileID: 1733997292}
+  orbSystem: {fileID: 0}
 --- !u!1 &1017930210
 GameObject:
   m_ObjectHideFlags: 0
@@ -24075,7 +24076,7 @@ MonoBehaviour:
   boardCard: {fileID: 6140933820412616341, guid: 2519d7385a9b87147a1bc55f132b54c1, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -25005,7 +25006,7 @@ MonoBehaviour:
   boardCard: {fileID: 2722498565613829282, guid: 4202da5ec6175a44098b9572072974cd, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 3
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -26228,7 +26229,7 @@ MonoBehaviour:
   boardCard: {fileID: 3759794007034100526, guid: 51f05bad78bffca4bb5adedf7a5a3380, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 2
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -27859,7 +27860,7 @@ MonoBehaviour:
   boardCard: {fileID: 6140933820412616341, guid: 2519d7385a9b87147a1bc55f132b54c1, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -30911,7 +30912,7 @@ MonoBehaviour:
   boardCard: {fileID: 2722498565613829282, guid: 4202da5ec6175a44098b9572072974cd, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 3
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -38427,7 +38428,7 @@ MonoBehaviour:
   boardCard: {fileID: 2722498565613829282, guid: 4202da5ec6175a44098b9572072974cd, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 3
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -44653,7 +44654,7 @@ MonoBehaviour:
   boardCard: {fileID: 3960441020319025981, guid: 1a9c94a27681f1b4b9e2c0cec3c334c1, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
@@ -44810,7 +44811,7 @@ MonoBehaviour:
   boardCard: {fileID: 2082310050732336553, guid: 782930e7bf1c0e34eb5f93e8c6432f82, type: 3}
   boardSystem: {fileID: 0}
   OrbSystem: {fileID: 0}
-  orbCost: 0
+  orbCost: 1
   handIndex: 0
   drawSystem: {fileID: 0}
   player1Card: 0
