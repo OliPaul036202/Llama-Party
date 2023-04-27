@@ -23569,6 +23569,7 @@ MonoBehaviour:
   - {fileID: 1072522792}
   - {fileID: 1733997292}
   orbSystem: {fileID: 0}
+  boardSystem: {fileID: 0}
 --- !u!1 &1017930210
 GameObject:
   m_ObjectHideFlags: 0
@@ -36618,11 +36619,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1719615227}
   lines:
-  - Make sure to activate your card abilities...
-  - FORTIFY boosts your total points but destroys the card.
-  - HEADBUTT takes more points away from your opponent but also destroys the card.
-  - YELL does not need activating, instead it executes as soon as you play it onto
-    the board
+  - Remember make sure to activate your card abilities...
+  - But be mindful at how much they cost.
+  - You can also cancel playing a card by right clicking.
+  - No go and make short work of this one!
   textSpeed: 0.06
   isHelp: 1
   gameManager: {fileID: 0}

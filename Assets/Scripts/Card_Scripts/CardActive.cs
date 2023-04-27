@@ -21,6 +21,7 @@ public class CardActive : MonoBehaviour
     public AbilityManager abilityManager;
 
     public GameObject previewCard;
+
     public Card activeCard;
 
     private AudioSource audioSource;
