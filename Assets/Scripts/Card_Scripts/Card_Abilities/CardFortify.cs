@@ -23,6 +23,9 @@ public class CardFortify : MonoBehaviour
     //Get score system so that the relavant amount of llama points are removed from opposing player
     public ScoreSystem scoreSystem;
 
+    //Get the orb system to take away orbs when toggling ability.
+    [SerializeField] public OrbSystem orbSystem;
+
     void Start()
     {
         checkBoxSpriteRend.enabled = false;
@@ -31,6 +34,8 @@ public class CardFortify : MonoBehaviour
 
         //Find score system script on different game object
         scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
+
+        orbSystem = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<OrbSystem>();
     }
 
     void Update()
@@ -60,13 +65,15 @@ public class CardFortify : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (!fortifyToggle)
+                if (!fortifyToggle && orbSystem.playerCurrentOrbs >= cardActive.orbCost)
                 {
                     fortifyToggle = true;
+                    orbSystem.playerCurrentOrbs -= cardActive.orbCost;
                 }
                 else if (fortifyToggle)
                 {
                     fortifyToggle = false;
+                    orbSystem.playerCurrentOrbs += cardActive.orbCost;
                 }
             }
         }

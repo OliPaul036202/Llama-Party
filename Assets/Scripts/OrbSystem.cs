@@ -40,10 +40,13 @@ public class OrbSystem : MonoBehaviour
         } else if (playerCurrentOrbs == 2)
         {
             orb1.sprite = whiteOrb;
+            orb2.sprite = purpleOrb;
+            orb3.sprite = purpleOrb;
         } else if(playerCurrentOrbs == 1)
         {
             orb1.sprite = whiteOrb;
             orb2.sprite = whiteOrb;
+            orb3.sprite = purpleOrb;
         } else if(playerCurrentOrbs == 0)
         {
             orb1.sprite = whiteOrb;

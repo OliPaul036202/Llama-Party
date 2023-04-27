@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wandara_Card
   m_EditorClassIdentifier: 
   name: Wandara
-  description: HEADBUTT (Left Click to Activate)
+  description: HEADBUTT
   artwork: {fileID: 21300000, guid: 5ef94b054f832144ab723a6bdeb3de38, type: 3}
   orbCost: 1
   llamaPoints: 1

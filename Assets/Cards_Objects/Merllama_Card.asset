@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Merllama_Card
   m_EditorClassIdentifier: 
   name: Merllama
-  description: HEADBUTT (Left Click to activate
+  description: HEADBUTT
   artwork: {fileID: 21300000, guid: b17876cbfa5bcaf4b839e0cfb5e031ba, type: 3}
   orbCost: 2
   llamaPoints: 2

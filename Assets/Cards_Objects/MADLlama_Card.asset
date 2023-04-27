@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MADLlama_Card
   m_EditorClassIdentifier: 
   name: MAD Llama
-  description: HEADBUTT (Left Click to Activate)
+  description: HEADBUTT
   artwork: {fileID: 21300000, guid: 69245f7621e3a99429ea68fff610200a, type: 3}
   orbCost: 3
   llamaPoints: 3

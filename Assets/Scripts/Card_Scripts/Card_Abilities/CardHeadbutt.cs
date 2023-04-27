@@ -23,6 +23,9 @@ public class CardHeadbutt : MonoBehaviour
     //Get score system so that the relavant amount of llama points are removed from opposing player
     public ScoreSystem scoreSystem;
 
+    //Get the orb system to take away orbs when toggling ability.
+    [SerializeField] public OrbSystem orbSystem;
+
     //Get enemy portrait for charge
     private Transform enemyPortraitPos;
     public float chargeSpeed = 50f;
@@ -36,6 +39,8 @@ public class CardHeadbutt : MonoBehaviour
 
         //Find score system script on different game object
         scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
+
+        orbSystem = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<OrbSystem>();
 
         enemyPortraitPos = GameObject.FindGameObjectWithTag("Player2Portrait").transform;
     }
@@ -73,13 +78,15 @@ public class CardHeadbutt : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (!headbuttToggle)
+                if (!headbuttToggle && orbSystem.playerCurrentOrbs >= cardActive.orbCost)
                 {
                     headbuttToggle = true;
+                    orbSystem.playerCurrentOrbs -= cardActive.orbCost;
                 }
                 else if (headbuttToggle)
                 {
                     headbuttToggle = false;
+                    orbSystem.playerCurrentOrbs += cardActive.orbCost;
                 }
             }
         }

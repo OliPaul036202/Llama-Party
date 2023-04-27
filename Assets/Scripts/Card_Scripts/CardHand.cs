@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
@@ -66,6 +67,7 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         Debug.Log(this.gameObject.name + " Was Clicked.");
         
         isPointerDown = true;
+        uiRect1.GetComponent<Image>().color = new Color(4f, 255f, 78f, 0.40f);
     }
 
     public void OnPointerUp(PointerEventData data)
@@ -78,6 +80,7 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 if (orbCost <= OrbSystem.playerCurrentOrbs && boardSystem.isPlayerSideAvailable() == true)
                 {
+                    uiRect1.GetComponent<Image>().color = new Color(4f, 255f, 78f, 0f);
                     //Take cost from players orbs
                     OrbSystem.applyOrbCost(orbCost);
                     //Play board card
@@ -91,8 +94,15 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     // If the player cannot afford to play this card; return it to their hand
                     transform.position = cachedPos;
                     isPointerDown = false;
+                    uiRect1.GetComponent<Image>().color = new Color(4f, 255f, 78f, 0f);
                 }
             }
+        } else if (!OverPlayer1Side && overPlayer2Side)
+        {
+            // If the player tried to play outside the friendly area
+            transform.position = cachedPos;
+            isPointerDown = false;
+            uiRect1.GetComponent<Image>().color = new Color(4f, 255f, 78f, 0f);
         }
         
         if (overPlayer2Side)
@@ -136,6 +146,8 @@ public class CardHand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             animator.enabled = false;
             Vector3 mousePos = Input.mousePosition;
             transform.position = mousePos;
+
+            
 
             //Check to see if card is over friendly side
             if (rectOverlaps(uiRect1, this.GetComponent<RectTransform>()))

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Llarper_Card
   m_EditorClassIdentifier: 
   name: Llarper
-  description: FORTIFY (Left Click to Activate)
+  description: FORTIFY
   artwork: {fileID: 21300000, guid: 33d283f9c51bf6c4287d3067e69caa21, type: 3}
   orbCost: 3
   llamaPoints: 3

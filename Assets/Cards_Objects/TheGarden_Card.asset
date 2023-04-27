@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TheGarden_Card
   m_EditorClassIdentifier: 
   name: The Garden
-  description: 'YELL: Give one random friendly Defender +1 LP'
+  description: YELL
   artwork: {fileID: 21300000, guid: 568bb6c404315a94daf68368dad4d0fb, type: 3}
   orbCost: 1
   llamaPoints: 1

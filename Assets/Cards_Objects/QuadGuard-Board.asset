@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuadGuard-Board
   m_EditorClassIdentifier: 
   name: Guard Llama
-  description: FORTIFY (Left Click to Activate)
+  description: FORTIFY
   artwork: {fileID: 21300000, guid: bd6b8b7b32b98854cae4315519f9a05c, type: 3}
   orbCost: 1
   llamaPoints: 1

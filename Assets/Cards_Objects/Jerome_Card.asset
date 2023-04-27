@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Jerome
   description: Jerome
-  artwork: {fileID: 21300000, guid: aef3994daf532654ca197c1f894254e4, type: 3}
+  artwork: {fileID: 21300000, guid: 4640104f59934a544af0a0d04f710261, type: 3}
   orbCost: 2
   llamaPoints: 3
   Booster: 0
