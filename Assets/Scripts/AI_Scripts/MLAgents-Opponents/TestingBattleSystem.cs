@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
-public class BattleSystem : MonoBehaviour
+public class TestingBattleSystem : MonoBehaviour
 {
-    public enum BattleState { START, PLAYERTURN, ENEMYTURN, WIN, LOST}
+    public enum BattleState { START, PLAYERONETURN, PLAYERTWOTURN, WIN, LOST }
 
     private BattleState battleState;
-    private bool canPlayCards;
 
     //Get draw system so both player 1 and 2 can draw cards at the end of each of their turns.
     private DrawSystem drawSystem;
@@ -21,45 +19,23 @@ public class BattleSystem : MonoBehaviour
     private ScoreSystem scoreSystem;
 
     //Keep track of which turn the game is currently on. // **NEED TO ADD MAX TURN WHEN GAMEPLAY IS FINISHED** //
-    private int turnCounter = 0;
-    public GameObject turnPanel;
-    public Text turnText;
-
-    public TMP_Text HUDTurnText;
+    public int turnCounter = 0;
 
     //Get all player 1 current active cards
     [SerializeField]
     private BoardSystem boardSystem;
 
-    //Change button
-    public Image buttonImage;
-    public Sprite buttonUp;
-    public Sprite buttonDown;
-    public Text buttonUpText;
-    public Text buttonDownText;
-
-    //For tutorial & story
-    public GameObject DialogueBoxCards;
-    public GameObject DialogueBoxWin;
-    private bool hasSeenTutorial = false;
-
-    //Quit, Next Level buttons for when game ends
-    public GameObject winPanelMenu;
-    public GameObject losePanelMenu;
-
     //Audio
     public AudioClip bells;
     private AudioSource audioSource;
 
-    public BasicAI_Controller basicAI; // **FOR TESTING** //
-
-    //public OpponentAgent opponentAgent; // **FOR REAL** //
+    public OpponentAgent opponentAgent; // **FOR REAL** //
+    public OpponentAgent player1Agent; // **FOR REAL** //
 
     // Start is called before the first frame update
     void Start()
     {
 
-        turnPanel.SetActive(false);
         orbSystem = GetComponent<OrbSystem>();
         drawSystem = GetComponent<DrawSystem>();
 
@@ -69,61 +45,39 @@ public class BattleSystem : MonoBehaviour
 
         //Get boardsystem to keep track active cards on board
         boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
-        buttonDownText.enabled = false;
-        canPlayCards = false;
         battleState = BattleState.START;
+        StartCoroutine(BeginBattle());
     }
 
     public IEnumerator BeginBattle()
     {
         Debug.Log("Starting Battle...");
         turnCounter += 1;
-        turnPanel.SetActive(true);
-        turnText.text = "TURN: " + turnCounter.ToString();
-        HUDTurnText.text = turnCounter.ToString();
         audioSource.Play();
-        yield return new WaitForSeconds(3);
-        //Wait 2 seconds then it is the players turn.
-        battleState = BattleState.PLAYERTURN;
-        turnPanel.SetActive(false);
+        yield return new WaitForSeconds(0.01f); //Wait 3 seconds then it is Player 1 Agents turn
+
+        battleState = BattleState.PLAYERONETURN;
         yield return StartCoroutine(PlayersTurn());
     }
 
     IEnumerator PlayersTurn()
     {
-        //Display message here stating its the players turn.
-        orbSystem.resetOrbs();
-        drawSystem.DrawCards();
-        drawSystem.DrawCards();
-        drawSystem.DrawCards();
+        
+        Debug.Log("Players 1s Turn");
 
-        yield return new WaitForSeconds(1);
-        Debug.Log("Players Turn");
-
-        if (!hasSeenTutorial)
-        {
-            DialogueBoxCards.SetActive(true);
-            hasSeenTutorial = true;
-        }
-
-        buttonImage.sprite = buttonUp;
-        buttonUpText.enabled = true;
-        buttonDownText.enabled = false;
-        canPlayCards = true;
+        //player1Agent.RequestDecision();
+        yield return new WaitForSeconds(0.01f);
+        endPlayerTurn();
     }
 
     public void endPlayerTurn()
     {
-        canPlayCards = false;
-        buttonImage.sprite = buttonDown;
-        buttonUpText.enabled = false;
-        buttonDownText.enabled = true;
 
         //Loop through all active player 1 cards
-        for(int i = 0; i < boardSystem.availableBoardSlots.Length; i++)
+        for (int i = 0; i < boardSystem.availableBoardSlots.Length; i++)
         {
             //Check to see if a card has been played on this slot
-            if(boardSystem.availableBoardSlots[i] == false)
+            if (boardSystem.availableBoardSlots[i] == false)
             {
                 Debug.Log("Found active card");
                 //Get child card from slot
@@ -155,48 +109,44 @@ public class BattleSystem : MonoBehaviour
             }
         }
 
-        battleState = BattleState.ENEMYTURN;
+        battleState = BattleState.PLAYERTWOTURN;
         StartCoroutine(EnemyTurn());
     }
 
     IEnumerator EnemyTurn()
     {
-        //AI turn
-        yield return new WaitForSeconds(1);
-        Debug.Log("Enemy Turn");
+        Debug.Log("Player 2s Turn");
 
         //Allow the Agent to play its turn.
-        //opponentAgent.RequestDecision();
+        opponentAgent.RequestDecision();
 
-        basicAI.playCard();
-        yield return new WaitForSeconds(0.5f);
-        basicAI.playCard();
-        yield return new WaitForSeconds(0.5f);
-        basicAI.playCard();
+        yield return new WaitForSeconds(0.01f);
+
+        /*        basicAI.playCard();
+                yield return new WaitForSeconds(0.5f);
+                basicAI.playCard();
+                yield return new WaitForSeconds(0.5f);
+                basicAI.playCard();*/
 
         yield return new WaitForSeconds(1);
         turnCounter += 1;
-        turnPanel.SetActive(true);
-        turnText.text = "TURN: " + turnCounter.ToString();
-        turnText.enabled = true;
-        HUDTurnText.text = turnCounter.ToString();
         audioSource.Play();
-        yield return new WaitForSeconds(3f);
 
         //Check to see if the game has reached the end of turn 7
-        if(turnCounter == 8)
+        if (turnCounter == 8)
         {
             endGame();
-        }else if(turnCounter < 8)
+        }
+        else
         {
-            turnPanel.SetActive(false);
             endEnemyTurn();
         }
+
     }
 
     public void endEnemyTurn()
     {
-        battleState = BattleState.PLAYERTURN;
+        battleState = BattleState.PLAYERONETURN;
         StartCoroutine(PlayersTurn());
     }
 
@@ -207,19 +157,16 @@ public class BattleSystem : MonoBehaviour
     {
         //Let the player know if they won or not at the end of the game by comparing player 1 and player 2 scores
         //Only the player needs to know visually
-        if(scoreSystem.playerScore > scoreSystem.player2Score)
+        if (scoreSystem.playerScore > scoreSystem.player2Score)
         {
-            turnPanel.SetActive(true);
-            turnText.text = "WIN";
-            turnText.enabled = true;
-            DialogueBoxWin.SetActive(true);
-            winPanelMenu.SetActive(true);
-        }else if(scoreSystem.playerScore <= scoreSystem.player2Score)
-        {
-            turnPanel.SetActive(true);
-            turnText.text = "LOST";
-            turnText.enabled = true;
-            losePanelMenu.SetActive(true);
+            Debug.Log("PLAYER 1 WINS!");
         }
+        else if (scoreSystem.playerScore < scoreSystem.player2Score)
+        {
+            Debug.Log("PLAYER 2 WINS!");
+        }
+
+        turnCounter = 0;
+        StartCoroutine(PlayersTurn());
     }
 }

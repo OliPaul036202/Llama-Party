@@ -15,6 +15,7 @@ TagManager:
   - SystemsManager
   - Player2Portrait
   - Player1Portrait
+  - OpponentAgent
   layers:
   - Default
   - TransparentFX
