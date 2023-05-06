@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Sensors;
 
 /// <summary>
 /// Opponent Machine Learning Agent
@@ -15,13 +16,17 @@ public class OpponentAgent : Agent
 
     public OrbSystem orbSystem;
     public BoardSystem boardSystem;
-    public BattleSystem battleSystem;
+    public TestingBattleSystem battleSystem;
 
     public ScoreSystem scoreSystem;
-    private int currentScore;
-    private int newScore;
+    public int currentScore;
+    public int newScore;
+
+    public bool IHaveCards;
 
     public bool trainingMode;
+
+    private int action;
 
     /// <summary>
     /// Initialize the agent
@@ -30,72 +35,61 @@ public class OpponentAgent : Agent
     {
         orbSystem = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<OrbSystem>();
         boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
-        battleSystem = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<BattleSystem>();
+        battleSystem = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<TestingBattleSystem>();
 
         scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
         currentScore = scoreSystem.player2Score;
         newScore = 0;
+
+        IHaveCards = false;
 
         if (!trainingMode) MaxStep = 0;
     }
 
     public override void OnEpisodeBegin()
     {
-        canPlayTurn = false;
+        IHaveCards = false;
+        RequestDecision();
+    }
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        sensor.AddObservation(IHaveCards);
     }
 
     /// <summary>
-    /// Agent plays a card
+    /// Agent plays a card from the selected action
     /// </summary>
     public void opponentChooseCard(ActionSegment<int> act)
     {
-        var action = act[0];
-        //Debug.Log("Opponent PLAYING CARD..." + act.ToString());
-        switch (action)
-        {
-            case 1:
-                playCard(0);
-                break;
-            case 2:
-                playCard(1);
-                break;
-            case 3:
-                playCard(2);
-                break;
-            case 4:
-                playCard(3);
-                break;
-            case 5:
-                playCard(4);
-                break;
-        }
+        playCard(act[0]);
+        playCard(act[1]);
+        playCard(act[2]);
 
-        //playCard(action);
+        if(orbSystem.player2CurrentOrbs == 0)
+        {
+            battleSystem.endEnemyTurn();
+        }
     }
 
     public void playCard(int deckNum)
     {
         Debug.Log("PLAYING CARD..." + deckNum.ToString());
-        deck[deckNum].transform.position = transform.position;
-        AddReward(0.1f); //Give reward for playing a card
-        battleSystem.endEnemyTurn();
+        if (IHaveCards)
+        {
+            if (deck[deckNum].orbCost <= orbSystem.player2CurrentOrbs && boardSystem.isPlayer2SideAvailable())
+            {
+                deck[deckNum].transform.position = transform.position;
+                deck.Remove(deck[deckNum]);
+                AddReward(0.1f); //Give reward for playing a card
+            }
 
-        /*        if(deck[deckNum].orbCost <= orbSystem.player2CurrentOrbs && boardSystem.isPlayer2SideAvailable())
-                {
-
-                    newScore = scoreSystem.player2Score;
-                }
-                else
-                {
-                    // End opponent turn
-                    canPlayTurn = false;
-                    if(newScore >= currentScore)
-                    {
-                        AddReward(.03f); // Give reward if the Agents score has gone up or stayed the same since last round.
-                        currentScore = newScore;
-                    }
-                    battleSystem.endEnemyTurn();
-                }*/
+            if(deck[deckNum].orbCost >= orbSystem.player2CurrentOrbs || !boardSystem.isPlayer2SideAvailable())
+            {
+                battleSystem.endEnemyTurn();
+                AddReward(0.05f); //Give reward for ending the turn
+            }
+        }
     }
 
     /// <summary>
@@ -108,8 +102,7 @@ public class OpponentAgent : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         //if (!canPlayTurn) return;
-
-        Debug.Log("RECEIVING ACTION...");
+        IHaveCards = true;
         opponentChooseCard(actions.DiscreteActions);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TestingBattleSystem : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class TestingBattleSystem : MonoBehaviour
     private AudioSource audioSource;
 
     public OpponentAgent opponentAgent; // **FOR REAL** //
-    public OpponentAgent player1Agent; // **FOR REAL** //
+    //public OpponentAgent player1Agent; // **FOR REAL** //
 
     // Start is called before the first frame update
     void Start()
@@ -56,58 +57,27 @@ public class TestingBattleSystem : MonoBehaviour
         audioSource.Play();
         yield return new WaitForSeconds(0.01f); //Wait 3 seconds then it is Player 1 Agents turn
 
+        //player1Agent.OnEpisodeBegin();
+
+        opponentAgent.OnEpisodeBegin();
+        opponentAgent.currentScore = scoreSystem.player2Score;
+
         battleState = BattleState.PLAYERONETURN;
         yield return StartCoroutine(PlayersTurn());
     }
 
     IEnumerator PlayersTurn()
     {
-        
+        orbSystem.resetOrbs();
         Debug.Log("Players 1s Turn");
 
         //player1Agent.RequestDecision();
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.1f);
         endPlayerTurn();
     }
 
     public void endPlayerTurn()
     {
-
-        //Loop through all active player 1 cards
-        for (int i = 0; i < boardSystem.availableBoardSlots.Length; i++)
-        {
-            //Check to see if a card has been played on this slot
-            if (boardSystem.availableBoardSlots[i] == false)
-            {
-                Debug.Log("Found active card");
-                //Get child card from slot
-                GameObject childCard = boardSystem.boardSlots[i].GetChild(0).gameObject;
-
-                //Check to see if child card has headbutt script
-                CardHeadbutt headButtCard = childCard.GetComponent<CardHeadbutt>();
-                if (headButtCard)
-                {
-                    if (headButtCard.headbuttActive)
-                    {
-                        headButtCard.attackPlayer();
-                        boardSystem.availableBoardSlots[i] = true;
-                    }
-                }
-                else
-                {
-                    //Check to see if child card has fortify script
-                    CardFortify fortifyCard = childCard.GetComponent<CardFortify>();
-                    if (fortifyCard)
-                    {
-                        if (fortifyCard.fortifyActive)
-                        {
-                            fortifyCard.fortifyPlayer();
-                            boardSystem.availableBoardSlots[i] = true;
-                        }
-                    }
-                }
-            }
-        }
 
         battleState = BattleState.PLAYERTWOTURN;
         StartCoroutine(EnemyTurn());
@@ -120,28 +90,37 @@ public class TestingBattleSystem : MonoBehaviour
         //Allow the Agent to play its turn.
         opponentAgent.RequestDecision();
 
+        opponentAgent.newScore = scoreSystem.player2Score;
+        if (opponentAgent.newScore < opponentAgent.currentScore)
+        {
+            opponentAgent.AddReward(-0.1f);
+            opponentAgent.currentScore = scoreSystem.player2Score;
+        }
+        else if (opponentAgent.newScore > opponentAgent.currentScore)
+        {
+            opponentAgent.AddReward(0.5f);
+            opponentAgent.currentScore = scoreSystem.player2Score;
+        }
+
+        if (scoreSystem.player2Score > scoreSystem.playerScore)
+        {
+            opponentAgent.AddReward(0.5f);
+        }
+
+
+
         yield return new WaitForSeconds(0.01f);
 
-        /*        basicAI.playCard();
-                yield return new WaitForSeconds(0.5f);
-                basicAI.playCard();
-                yield return new WaitForSeconds(0.5f);
-                basicAI.playCard();*/
-
-        yield return new WaitForSeconds(1);
         turnCounter += 1;
         audioSource.Play();
 
         //Check to see if the game has reached the end of turn 7
         if (turnCounter == 8)
         {
+            //player1Agent.EndEpisode();
+            opponentAgent.EndEpisode();
             endGame();
         }
-        else
-        {
-            endEnemyTurn();
-        }
-
     }
 
     public void endEnemyTurn()
@@ -167,6 +146,7 @@ public class TestingBattleSystem : MonoBehaviour
         }
 
         turnCounter = 0;
-        StartCoroutine(PlayersTurn());
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 }
