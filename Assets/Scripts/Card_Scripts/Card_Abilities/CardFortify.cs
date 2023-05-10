@@ -26,6 +26,8 @@ public class CardFortify : MonoBehaviour
     //Get the orb system to take away orbs when toggling ability.
     [SerializeField] public OrbSystem orbSystem;
 
+    public GameObject effectPrefab;
+
     void Start()
     {
         checkBoxSpriteRend.enabled = false;
@@ -100,6 +102,7 @@ public class CardFortify : MonoBehaviour
                 scoreSystem.player2Score += cardActive.llamaPoints;
             }
         }
+        Instantiate(effectPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

@@ -78,12 +78,15 @@ public class BattleSystem : MonoBehaviour
     {
         Debug.Log("Starting Battle...");
         turnCounter += 1;
+
+        //Show Pop-Up UI to show what turn it is
         turnPanel.SetActive(true);
         turnText.text = "TURN: " + turnCounter.ToString();
         HUDTurnText.text = turnCounter.ToString();
         audioSource.Play();
+
+        //Wait X seconds then start player 1s turn
         yield return new WaitForSeconds(3);
-        //Wait 2 seconds then it is the players turn.
         battleState = BattleState.PLAYERTURN;
         turnPanel.SetActive(false);
         yield return StartCoroutine(PlayersTurn());
@@ -91,21 +94,24 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayersTurn()
     {
-        //Display message here stating its the players turn.
+        //Reset Llama Orbs to max and draw up to three cards
         orbSystem.resetOrbs();
         drawSystem.DrawCards();
         drawSystem.DrawCards();
         drawSystem.DrawCards();
 
+        //Wait X seconds then start the players turn.
         yield return new WaitForSeconds(1);
         Debug.Log("Players Turn");
 
+        //If the player has not seen the tutorial, display it
         if (!hasSeenTutorial)
         {
             DialogueBoxCards.SetActive(true);
             hasSeenTutorial = true;
         }
 
+        //Button UI come up ready to be pressed down by the player to end turn
         buttonImage.sprite = buttonUp;
         buttonUpText.enabled = true;
         buttonDownText.enabled = false;

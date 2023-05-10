@@ -27,9 +27,7 @@ public class CardHeadbutt : MonoBehaviour
     [SerializeField] public OrbSystem orbSystem;
 
     //Get enemy portrait for charge
-    private Transform enemyPortraitPos;
-    public float chargeSpeed = 50f;
-    private bool canCharge = false;
+    public GameObject effectPrefab;
 
     void Start()
     {
@@ -41,8 +39,6 @@ public class CardHeadbutt : MonoBehaviour
         scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
 
         orbSystem = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<OrbSystem>();
-
-        enemyPortraitPos = GameObject.FindGameObjectWithTag("Player2Portrait").transform;
     }
 
     void Update()
@@ -65,11 +61,6 @@ public class CardHeadbutt : MonoBehaviour
             headbuttActive = true;
         }
 
-        if (canCharge)
-        {
-            float step = chargeSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, enemyPortraitPos.position, step);
-        }
     }
 
     private void OnMouseOver()
@@ -113,17 +104,7 @@ public class CardHeadbutt : MonoBehaviour
             }
         }
         //Charge at enemy portrait and HEADBUTT
-        transform.position = new Vector3(transform.position.x, transform.position.y + 100, transform.position.z);
-        canCharge = true;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        //Destroy this gameobject on collision with player 2 portrait
-        if (other.gameObject.tag == "Player2Portrait")
-        {
-            Debug.Log("Collided");
-            Destroy(gameObject);
-        }
+        Instantiate(effectPrefab, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

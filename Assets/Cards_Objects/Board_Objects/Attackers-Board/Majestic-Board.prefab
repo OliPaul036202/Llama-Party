@@ -251,7 +251,8 @@ MonoBehaviour:
   checkBoxSpriteRend: {fileID: 4208360367864728625}
   headbuttActive: 0
   scoreSystem: {fileID: 0}
-  chargeSpeed: 1400
+  orbSystem: {fileID: 0}
+  effectPrefab: {fileID: 7929938056960356359, guid: de73fe0451556d8449e0aa9e9dfb8e75, type: 3}
 --- !u!65 &1165766017642125258
 BoxCollider:
   m_ObjectHideFlags: 0
