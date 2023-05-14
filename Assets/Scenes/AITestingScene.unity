@@ -3799,7 +3799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &194936393
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3870,7 +3870,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 194936392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -3882,6 +3882,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &205791074
 GameObject:
   m_ObjectHideFlags: 0
@@ -7190,7 +7191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &357386591
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7261,7 +7262,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 357386590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -7273,6 +7274,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &364957805
 GameObject:
   m_ObjectHideFlags: 0
@@ -9504,7 +9506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &483259675
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9575,7 +9577,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 483259674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -9587,6 +9589,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &486525221
 GameObject:
   m_ObjectHideFlags: 0
@@ -10256,7 +10259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &506290515
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10327,7 +10330,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 506290514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -10339,6 +10342,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &508212040
 GameObject:
   m_ObjectHideFlags: 0
@@ -11686,7 +11690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &604146962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11757,7 +11761,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 604146961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -11769,6 +11773,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &619306588
 GameObject:
   m_ObjectHideFlags: 0
@@ -12120,7 +12125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: THE CHOSEN
+  m_text: BASIC BOT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 311ba3725e90cb1498993634a8125de1, type: 2}
   m_sharedMaterial: {fileID: -5236135886015448682, guid: 311ba3725e90cb1498993634a8125de1, type: 2}
@@ -13616,7 +13621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &696024150
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13687,7 +13692,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 696024149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -13699,6 +13704,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &697444563
 GameObject:
   m_ObjectHideFlags: 0
@@ -13850,7 +13856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &703344404
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13921,7 +13927,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 703344403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -13933,6 +13939,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1001 &710326246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15099,7 +15106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &731582731
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15170,7 +15177,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 731582730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -15182,6 +15189,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &732469510
 GameObject:
   m_ObjectHideFlags: 0
@@ -16202,7 +16210,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &785496558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16273,7 +16281,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 785496557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -16285,6 +16293,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1001 &798305272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19156,7 +19165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &955989667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19227,7 +19236,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 955989666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -19239,6 +19248,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &958312390
 GameObject:
   m_ObjectHideFlags: 0
@@ -19961,7 +19971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &982703100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20032,7 +20042,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 982703099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -20044,6 +20054,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &985436155
 GameObject:
   m_ObjectHideFlags: 0
@@ -21794,7 +21805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1081216359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21865,7 +21876,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1081216358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -21877,6 +21888,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &1082477580
 GameObject:
   m_ObjectHideFlags: 0
@@ -24604,7 +24616,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 500000
+  MaxStep: 5000
   canPlayTurn: 0
   deck:
   - {fileID: 1072337834}
@@ -24631,7 +24643,7 @@ MonoBehaviour:
   currentScore: 0
   newScore: 0
   IHaveCards: 0
-  trainingMode: 1
+  trainingMode: 0
 --- !u!114 &1235740564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24648,13 +24660,13 @@ MonoBehaviour:
     VectorObservationSize: 3
     NumStackedVectorObservations: 1
     m_ActionSpec:
-      m_NumContinuousActions: 3
-      BranchSizes: 060000000600000004000000
-    VectorActionSize: 
+      m_NumContinuousActions: 0
+      BranchSizes: 060000000600000005000000
+    VectorActionSize: 060000000600000005000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 1456393d9bde46c42a3f8461a3522793, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: LPOpponent
@@ -27932,7 +27944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1443615336
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27950,7 +27962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 188}
+  m_AnchoredPosition: {x: 0, y: -176}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1443615337
@@ -27966,25 +27978,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - {fileID: 1072337834}
-  - {fileID: 1256761138}
-  - {fileID: 2094332844}
-  - {fileID: 1193265991}
-  - {fileID: 129535888}
-  - {fileID: 1844331818}
-  - {fileID: 1735754737}
-  - {fileID: 697444565}
-  - {fileID: 1049675727}
-  - {fileID: 1463915384}
-  - {fileID: 602597456}
-  - {fileID: 1401498618}
-  - {fileID: 481196800}
-  - {fileID: 431535509}
-  - {fileID: 973310273}
-  - {fileID: 1231600143}
-  - {fileID: 302344287}
+  - {fileID: 703344407}
+  - {fileID: 1776219651}
+  - {fileID: 731582734}
+  - {fileID: 357386594}
+  - {fileID: 604146965}
+  - {fileID: 2082025815}
+  - {fileID: 955989670}
+  - {fileID: 1677161530}
+  - {fileID: 2094853536}
+  - {fileID: 2072737959}
+  - {fileID: 2020185915}
+  - {fileID: 1081216362}
+  - {fileID: 982703103}
+  - {fileID: 696024153}
+  - {fileID: 2082019632}
+  - {fileID: 1703069210}
+  - {fileID: 483259678}
+  - {fileID: 785496561}
+  - {fileID: 194936396}
+  - {fileID: 506290518}
   orbSystem: {fileID: 0}
   boardSystem: {fileID: 0}
+  battleStystem: {fileID: 0}
+  isAgainstAI: 0
 --- !u!1001 &1444943902
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29244,7 +29261,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3f5a98ab1d5248141b8b8ba8151fb7de, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 11b79f76c3d4c7445887d1c31ab782cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -32161,7 +32178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1677161527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32232,7 +32249,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1677161526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -32244,6 +32261,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &1686992544
 GameObject:
   m_ObjectHideFlags: 0
@@ -32848,7 +32866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1703069207
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32919,7 +32937,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1703069206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -32931,6 +32949,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &1703249616
 GameObject:
   m_ObjectHideFlags: 0
@@ -33502,7 +33521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1776219648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33573,7 +33592,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1776219647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -33585,6 +33604,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &1784611889
 GameObject:
   m_ObjectHideFlags: 0
@@ -36688,7 +36708,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: THE WARDEN
+  m_text: ML AGENT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 311ba3725e90cb1498993634a8125de1, type: 2}
   m_sharedMaterial: {fileID: -5236135886015448682, guid: 311ba3725e90cb1498993634a8125de1, type: 2}
@@ -37486,7 +37506,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 283086d605b3dfe4a82bf738ad703122, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b077fbc4a411774d998b7ee8937bd02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -37626,26 +37646,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - {fileID: 703344407}
-  - {fileID: 1776219651}
-  - {fileID: 731582734}
-  - {fileID: 357386594}
-  - {fileID: 604146965}
-  - {fileID: 2082025815}
-  - {fileID: 955989670}
-  - {fileID: 1677161530}
-  - {fileID: 2094853536}
-  - {fileID: 2072737959}
-  - {fileID: 2020185915}
-  - {fileID: 1081216362}
-  - {fileID: 982703103}
-  - {fileID: 696024153}
-  - {fileID: 2082019632}
-  - {fileID: 1703069210}
-  - {fileID: 483259678}
-  - {fileID: 785496561}
-  - {fileID: 194936396}
-  - {fileID: 506290518}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   cardSlots:
   - {fileID: 1994316915}
   - {fileID: 1225609178}
@@ -37698,9 +37718,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnCounter: 0
+  turnText: {fileID: 2043457326}
   boardSystem: {fileID: 0}
   bells: {fileID: 8300000, guid: 39f3cec9983e28e47b6db38675bd90e2, type: 3}
   opponentAgent: {fileID: 1235740563}
+  basicAI: {fileID: 1443615337}
+  trainingmode: 0
 --- !u!1 &1994316914
 GameObject:
   m_ObjectHideFlags: 0
@@ -38219,7 +38242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2020185912
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38290,7 +38313,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2020185911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -38302,6 +38325,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &2022351677
 GameObject:
   m_ObjectHideFlags: 0
@@ -39286,7 +39310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2072737956
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39357,7 +39381,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2072737955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -39369,6 +39393,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &2078995375
 GameObject:
   m_ObjectHideFlags: 0
@@ -39590,7 +39615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2082019629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39661,7 +39686,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2082019628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -39673,6 +39698,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &2082025811
 GameObject:
   m_ObjectHideFlags: 0
@@ -39691,7 +39717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2082025812
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39762,7 +39788,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2082025811}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -39774,6 +39800,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &2083341311
 GameObject:
   m_ObjectHideFlags: 0
@@ -40071,7 +40098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2094853533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40142,7 +40169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2094853532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73cd4aee24e54e4eb209208a93e3153, type: 3}
+  m_Script: {fileID: 11500000, guid: 389eec893c24ecb40b45967caf4195a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   GameSystemsManager: {fileID: 0}
@@ -40154,6 +40181,7 @@ MonoBehaviour:
   drawSystem: {fileID: 0}
   player1Card: 1
   player2Card: 0
+  player1SideTransform: {fileID: 0}
 --- !u!1 &2107134704
 GameObject:
   m_ObjectHideFlags: 0

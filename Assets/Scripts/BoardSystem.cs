@@ -42,7 +42,7 @@ public class BoardSystem : MonoBehaviour
         {
             if (availablePlayer2Slots[i] == true)
             {
-                Debug.Log("Spawned Board Card");
+                Debug.Log("Spawned Player 2 Board Card");
                 Instantiate(card, player2BoardSlots[i].position, card.transform.rotation, player2BoardSlots[i]);
                 card.GetComponent<CardActive>().player2BoardCard = true;
                 availablePlayer2Slots[i] = false;

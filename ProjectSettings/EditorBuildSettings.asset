@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TheKingLevel.unity
     guid: 6d2176a061e0bdf418a00123de81350a
+  - enabled: 1
+    path: Assets/Scenes/AITestingScene.unity
+    guid: 8c60f8343f4e05e438036d594fc3d1a5
   m_configObjects: {}

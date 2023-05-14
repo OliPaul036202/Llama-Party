@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class BasicAI_Controller : MonoBehaviour
 {
-    public List<CardHandPlayer2> deck;
+    public List<CardHand> deck;
     public OrbSystem orbSystem;
     public BoardSystem boardSystem;
+    public TestingBattleSystem battleStystem;
+
+    public bool isAgainstAI = false;
 
     private void Start()
     {
         orbSystem = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<OrbSystem>();
+
+        if (isAgainstAI)
+        {
+            battleStystem = GameObject.FindGameObjectWithTag("SystemsManager").GetComponent<TestingBattleSystem>();
+        }
 
         boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
     }
@@ -19,11 +27,17 @@ public class BasicAI_Controller : MonoBehaviour
     {
         int randCard = UnityEngine.Random.Range(0, deck.Count);
 
-        if (deck[randCard].orbCost <= orbSystem.player2CurrentOrbs && boardSystem.isPlayer2SideAvailable())
+        if (deck.Count > 0)
         {
-            //orbSystem.applyOrbCostPlayer2(deck[randCard].orbCost);
-            deck[randCard].transform.position = transform.position;
-            deck.RemoveAt(randCard);
+            if (deck[randCard].orbCost <= orbSystem.playerCurrentOrbs && boardSystem.isPlayerSideAvailable())
+            {
+                deck[randCard].transform.position = transform.position;
+                deck.RemoveAt(randCard);
+            }
+        }
+        else if(isAgainstAI)
+        {
+            battleStystem.endPlayerTurn();
         }
     }
 }

@@ -27,4 +27,9 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
     }
+
+    public void startAIDemo()
+    {
+        SceneManager.LoadScene("AITestingScene", LoadSceneMode.Single);
+    }
 }

@@ -49,7 +49,10 @@ public class OpponentAgent : Agent
     public override void OnEpisodeBegin()
     {
         IHaveCards = false;
-        RequestDecision();
+        if (canPlayTurn)
+        {
+            RequestDecision();
+        }
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -62,6 +65,7 @@ public class OpponentAgent : Agent
     /// </summary>
     public void opponentChooseCard(ActionSegment<int> act)
     {
+        //Choose and play three cards from three different branches
         playCard(act[0]);
         playCard(act[1]);
         playCard(act[2]);
@@ -77,31 +81,38 @@ public class OpponentAgent : Agent
         Debug.Log("PLAYING CARD..." + deckNum.ToString());
         if (IHaveCards)
         {
-            if (deck[deckNum].orbCost <= orbSystem.player2CurrentOrbs && boardSystem.isPlayer2SideAvailable())
+            //Check to see if the selected card can be played. i.e has enough Llama Orbs to play
+            if(deck.Count > 0)
             {
-                deck[deckNum].transform.position = transform.position;
-                deck.Remove(deck[deckNum]);
-                AddReward(0.1f); //Give reward for playing a card
+                if (deck[deckNum].orbCost <= orbSystem.player2CurrentOrbs && boardSystem.isPlayer2SideAvailable() && canPlayTurn)
+                {
+                    deck[deckNum].transform.position = transform.position; //Play card onto the board
+                    deck.Remove(deck[deckNum]); //Remove card from the List
+                    AddReward(0.1f); //Give reward for playing a card
+                }
+                else if (deck[deckNum].orbCost >= orbSystem.player2CurrentOrbs || !boardSystem.isPlayer2SideAvailable() || orbSystem.player2CurrentOrbs == 0)//If no more Llama Orbs or side of board is full, end turn
+                {
+                    battleSystem.endEnemyTurn();
+                    canPlayTurn = false;
+                    AddReward(0.05f); //Give reward for ending the turn
+                }
             }
-
-            if(deck[deckNum].orbCost >= orbSystem.player2CurrentOrbs || !boardSystem.isPlayer2SideAvailable())
+            else
             {
+                canPlayTurn = false;
                 battleSystem.endEnemyTurn();
-                AddReward(0.05f); //Give reward for ending the turn
             }
         }
     }
 
     /// <summary>
-    /// Called every step of the engine. Here the agent will pick and play a card
+    /// Called when an action is requested
     /// 
-    /// ActionBuffers represents
-    /// Index 0: First card in deck
+    /// ActionBuffers represents the actions the Agent can take
     /// </summary>
     /// <param name="actions">The card to play</param>
     public override void OnActionReceived(ActionBuffers actions)
     {
-        //if (!canPlayTurn) return;
         IHaveCards = true;
         opponentChooseCard(actions.DiscreteActions);
     }
