@@ -9,7 +9,10 @@ public class ButtonManagerScript : MonoBehaviour
 
     private void Start()
     {
-        pauseMenu.SetActive(false);
+        if (pauseMenu)
+        {
+            pauseMenu.SetActive(false);
+        }
     }
 
     private void Update()

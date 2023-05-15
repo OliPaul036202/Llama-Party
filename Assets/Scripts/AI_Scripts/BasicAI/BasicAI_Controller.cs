@@ -27,17 +27,30 @@ public class BasicAI_Controller : MonoBehaviour
     {
         int randCard = UnityEngine.Random.Range(0, deck.Count);
 
-        if (deck.Count > 0)
+        if (deck[randCard].orbCost <= orbSystem.playerCurrentOrbs && boardSystem.isPlayerSideAvailable())
         {
-            if (deck[randCard].orbCost <= orbSystem.playerCurrentOrbs && boardSystem.isPlayerSideAvailable())
+            Debug.Log("Playing Card" + randCard.ToString());
+            deck[randCard].transform.position = transform.position;
+            deck.RemoveAt(randCard);
+        }
+        else if(deck[randCard].orbCost > orbSystem.playerCurrentOrbs || !boardSystem.isPlayerSideAvailable() || deck.Count <= 0)
+        {
+            if (isAgainstAI)
             {
-                deck[randCard].transform.position = transform.position;
-                deck.RemoveAt(randCard);
+                battleStystem.endPlayerTurn();
             }
         }
-        else if(isAgainstAI)
+    }
+
+    public void playCardEnemy()
+    {
+        int randCard = UnityEngine.Random.Range(0, deck.Count);
+
+        if (deck[randCard].orbCost <= orbSystem.player2CurrentOrbs && boardSystem.isPlayer2SideAvailable())
         {
-            battleStystem.endPlayerTurn();
+            Debug.Log("Playing Card" + randCard.ToString());
+            deck[randCard].transform.position = transform.position;
+            deck.RemoveAt(randCard);
         }
     }
 }

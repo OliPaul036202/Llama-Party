@@ -70,7 +70,7 @@ public class OpponentAgent : Agent
         playCard(act[1]);
         playCard(act[2]);
 
-        if(orbSystem.player2CurrentOrbs == 0)
+        if (!IHaveCards)
         {
             battleSystem.endEnemyTurn();
         }
@@ -78,7 +78,7 @@ public class OpponentAgent : Agent
 
     public void playCard(int deckNum)
     {
-        Debug.Log("PLAYING CARD..." + deckNum.ToString());
+        //Debug.Log("PLAYING CARD..." + deckNum.ToString());
         if (IHaveCards)
         {
             //Check to see if the selected card can be played. i.e has enough Llama Orbs to play
@@ -90,17 +90,12 @@ public class OpponentAgent : Agent
                     deck.Remove(deck[deckNum]); //Remove card from the List
                     AddReward(0.1f); //Give reward for playing a card
                 }
-                else if (deck[deckNum].orbCost >= orbSystem.player2CurrentOrbs || !boardSystem.isPlayer2SideAvailable() || orbSystem.player2CurrentOrbs == 0)//If no more Llama Orbs or side of board is full, end turn
+                else if (deck[deckNum].orbCost >= orbSystem.player2CurrentOrbs || !boardSystem.isPlayer2SideAvailable() || orbSystem.player2CurrentOrbs == 0) //If no more Llama Orbs or side of board is full, end turn
                 {
-                    battleSystem.endEnemyTurn();
                     canPlayTurn = false;
+                    IHaveCards = false;
                     AddReward(0.05f); //Give reward for ending the turn
                 }
-            }
-            else
-            {
-                canPlayTurn = false;
-                battleSystem.endEnemyTurn();
             }
         }
     }

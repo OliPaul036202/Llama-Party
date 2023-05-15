@@ -21,33 +21,31 @@ public class TestingBattleSystem : MonoBehaviour
 
     //Keep track of which turn the game is currently on. // **NEED TO ADD MAX TURN WHEN GAMEPLAY IS FINISHED** //
     public int turnCounter = 0;
+    public GameObject endPanel;
+    public TMP_Text winnerText;
     public TMP_Text turnText;
 
     //Get all player 1 current active cards
     [SerializeField]
     private BoardSystem boardSystem;
 
-    //Audio
-    public AudioClip bells;
-    private AudioSource audioSource;
-
     //Demo AI
     public OpponentAgent opponentAgent; // **ML Agent** //
     public BasicAI_Controller basicAI; // **Custom Basic Bot** //
 
-    //Training mode
-    public bool trainingmode;
+    bool trainingMode = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
+        endPanel.SetActive(false);
 
         orbSystem = GetComponent<OrbSystem>();
         drawSystem = GetComponent<DrawSystem>();
 
         scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
 
-        audioSource = GetComponent<AudioSource>();
 
         //Get boardsystem to keep track active cards on board
         boardSystem = GameObject.FindGameObjectWithTag("BoardSystem").GetComponent<BoardSystem>();
@@ -60,16 +58,12 @@ public class TestingBattleSystem : MonoBehaviour
         Debug.Log("Starting Battle...");
         turnCounter += 1;
         turnText.text = turnCounter.ToString();
-        audioSource.Play();
         yield return new WaitForSeconds(0.01f); //Wait x seconds then it is Player 1 Agents turn
 
         //player1Agent.OnEpisodeBegin();
 
-        if (trainingmode)
-        {
-            opponentAgent.OnEpisodeBegin(); // Start training episode of agent
-        }
-
+        opponentAgent.OnEpisodeBegin(); // Start training episode of agent
+        
         opponentAgent.currentScore = scoreSystem.player2Score;
 
         battleState = BattleState.PLAYERONETURN;
@@ -79,32 +73,19 @@ public class TestingBattleSystem : MonoBehaviour
     IEnumerator PlayersTurn()
     {
         orbSystem.resetOrbs();
-        //Debug.Log("Players 1s Turn");
+        Debug.Log("Players 1s Turn");
 
         basicAI.playCard();
 
-        if (trainingmode)
-        {
-            yield return new WaitForSeconds(0.1f);
-        }else if (!trainingmode)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
+        yield return new WaitForSeconds(0.5f);
+        basicAI.playCard();
+
+        yield return new WaitForSeconds(0.5f);
 
         basicAI.playCard();
 
-        if (trainingmode)
-        {
-            yield return new WaitForSeconds(0.1f);
-        }
-        else if (!trainingmode)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
+        yield return new WaitForSeconds(0.5f);
 
-        basicAI.playCard();
-
-        yield return new WaitForSeconds(1.0f);
         endPlayerTurn();
     }
 
@@ -117,10 +98,11 @@ public class TestingBattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        //Debug.Log("Player 2s Turn");
+        Debug.Log("Player 2s Turn");
 
         //Allow the Agent to play its turn.
         opponentAgent.canPlayTurn = true;
+
         opponentAgent.RequestDecision();
 
         opponentAgent.newScore = scoreSystem.player2Score;
@@ -143,18 +125,12 @@ public class TestingBattleSystem : MonoBehaviour
             opponentAgent.AddReward(0.5f);
         }
 
-        if (trainingmode)
-        {
-            yield return new WaitForSeconds(0.01f);
-        }
-        else if (!trainingmode)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
+        yield return new WaitForSeconds(1.5f);
+
+        opponentAgent.RequestDecision();
 
         turnCounter += 1;
         turnText.text = turnCounter.ToString();
-        audioSource.Play();
 
         //Check to see if the game has reached the end of turn 7
         if (turnCounter == 8)
@@ -181,14 +157,28 @@ public class TestingBattleSystem : MonoBehaviour
         if (scoreSystem.playerScore > scoreSystem.player2Score)
         {
             Debug.Log("PLAYER 1 WINS!");
-        }
-        else if (scoreSystem.playerScore < scoreSystem.player2Score)
+            endPanel.SetActive(true);
+            winnerText.text = "BASIC BOT WINS";
+        }else if (scoreSystem.playerScore < scoreSystem.player2Score)
         {
             Debug.Log("PLAYER 2 WINS!");
+            endPanel.SetActive(true);
+            winnerText.text = "ML AGENT WINS";
+        }else if(scoreSystem.playerScore == scoreSystem.player2Score)
+        {
+            endPanel.SetActive(true);
+            winnerText.text = "DRAW";
         }
 
-        turnCounter = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (trainingMode)
+        {
+            turnCounter = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }else if (!trainingMode)
+        {
+            Time.timeScale = 0;
+            turnCounter = 0;
+        }
         
     }
 }

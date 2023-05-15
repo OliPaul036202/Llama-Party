@@ -174,11 +174,11 @@ public class BattleSystem : MonoBehaviour
         //Allow the Agent to play its turn.
         //opponentAgent.RequestDecision();
 
-        basicAI.playCard();
+        basicAI.playCardEnemy();
         yield return new WaitForSeconds(0.5f);
-        basicAI.playCard();
+        basicAI.playCardEnemy();
         yield return new WaitForSeconds(0.5f);
-        basicAI.playCard();
+        basicAI.playCardEnemy();
 
         yield return new WaitForSeconds(1);
         turnCounter += 1;
