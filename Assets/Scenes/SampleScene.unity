@@ -24219,6 +24219,8 @@ MonoBehaviour:
   - {fileID: 2074489294}
   orbSystem: {fileID: 0}
   boardSystem: {fileID: 0}
+  battleStystem: {fileID: 0}
+  isAgainstAI: 0
 --- !u!1 &1172542805
 GameObject:
   m_ObjectHideFlags: 0
@@ -27616,6 +27618,8 @@ MonoBehaviour:
   - Use Attacker cards to take points away from your opponent.
   - Some Attacker cards have the HEADBUTT ability...
   - HEADBUTT destroys the card but takes points away from your opponent.
+  - Right clicking while you have a card equipped will also place it back into your
+    hand.
   - Now finish this foe qucikly! So that we may begin work on my great plans..
   textSpeed: 0.06
   isHelp: 1

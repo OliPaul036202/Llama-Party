@@ -23570,6 +23570,8 @@ MonoBehaviour:
   - {fileID: 1733997292}
   orbSystem: {fileID: 0}
   boardSystem: {fileID: 0}
+  battleStystem: {fileID: 0}
+  isAgainstAI: 0
 --- !u!1 &1017930210
 GameObject:
   m_ObjectHideFlags: 0
